@@ -28,7 +28,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            CETAV|Bolsa de empleo
+            <img src="/images/triada-logo.png" alt="Cetav Logo"></img>
+            <p>Bolsa de empleo</p>
           </Link>
 
           <div className='menu-icon' onClick={handleClick}>
@@ -45,6 +46,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
+                {/* <img src="/images/"></img> */}
                 Puestos Disponibles
               </Link>
             </li>
