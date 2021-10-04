@@ -38,6 +38,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                <img src="/images/home.png" alt="Home Logo"></img>
                 Inicio
               </Link>
             </li>
@@ -46,7 +47,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                {/* <img src="/images/"></img> */}
+                <img src="/images/card_travel.png" alt="Jobs Logo"></img>
                 Puestos Disponibles
               </Link>
             </li>
@@ -55,6 +56,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
+                <img src="/images/ic_baseline-post-add.png" alt="Jobs Logo"></img>
                 Publicar Puestos
               </Link>
             </li>

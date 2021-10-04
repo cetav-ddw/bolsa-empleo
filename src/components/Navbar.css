@@ -58,6 +58,10 @@
   height: 100%;
 }
 
+.nav-links img{
+  display: none;
+}
+
 .fa-bars {
   color: #fff;
 }
@@ -103,12 +107,18 @@
     border: 1px solid #fff;
     border-radius: 15px;
     text-align: left;
+    justify-content: start;
     padding: 2rem;
     width: 90%;
     display: table;
     font-size: 1.5rem;
-    font-weight: bold;
   }
+
+  .nav-links img{
+    display: inline;
+    
+  }
+  
 
   .navbar-logo {
     position: absolute;
