@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import Tags from './Tags';
+import axios from 'axios'
 
-const Cards = (props) => {
+function Cards() {
+    const [post, setPost] = useState({})
+    useEffect(() => {
+        axios.get(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`)
+            .then(res => {
+                setPost(res.data.records[5].fields)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    })
     return (
         <Wrapper>
-            <Jobs src="img/jobs.png" />
-            <Content>
-                <Title>{props.name}</Title>
-                <ContainerText><ContentType>7 Skills of Highly Effective Programmers</ContentType></ContainerText>
-                <Tags name="Html"></Tags>
-            </Content>
-        </Wrapper>
+        <Jobs src="img/jobs.png" />
+        <Content>
+            <Title>{post.career}</Title>
+            <ContainerText><ContentType>{post.type_job} {post.job_level} {post.description}</ContentType></ContainerText>
+        </Content>
+    </Wrapper>
     )
 }
 
@@ -73,4 +82,4 @@ const Jobs = styled.img`
     margin-top: 38px;
     width: 100px;
 `
-export default Cards;
+ export default Cards;
