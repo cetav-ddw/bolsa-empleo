@@ -15,12 +15,12 @@ function Cards() {
     })
     return (
         <Wrapper>
-        <Jobs src="img/jobs.png" />
-        <Content>
-            <Title>{post.career}</Title>
-            <ContainerText><ContentType>{post.type_job} {post.job_level} {post.description}</ContentType></ContainerText>
-        </Content>
-    </Wrapper>
+            <Jobs src="img/jobs.png" />
+            <Content>
+                <Title>{post.career}</Title>
+                <ContainerText><ContentType>{post.type_job} {post.job_level} {post.description}</ContentType></ContainerText>
+            </Content>
+        </Wrapper>
     )
 }
 
@@ -82,4 +82,5 @@ const Jobs = styled.img`
     margin-top: 38px;
     width: 100px;
 `
- export default Cards;
+
+export default Cards;
