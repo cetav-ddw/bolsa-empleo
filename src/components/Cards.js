@@ -3,24 +3,36 @@ import styled from 'styled-components';
 import axios from 'axios'
 
 function Cards() {
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState([])
     useEffect(() => {
         axios.get(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`)
             .then(res => {
-                setPost(res.data.records[5].fields)
+                setPost(res.data.records)
             })
             .catch(err => {
                 console.log(err)
             })
     })
     return (
-        <Wrapper>
+        <div>
+            {
+                post.map(post => (
+                    <Wrapper>
+                        <Jobs src="img/jobs.png" />
+                        <Content>
+                            <Title>{post.fields.career}</Title>
+                            <ContainerText><ContentType>{post.fields.type_job} {post.fields.job_level} {post.fields.description}</ContentType></ContainerText>
+                        </Content>
+                    </Wrapper>
+                ))}
+        </div>
+        /* <Wrapper>
             <Jobs src="img/jobs.png" />
             <Content>
                 <Title>{post.career}</Title>
                 <ContainerText><ContentType>{post.type_job} {post.job_level} {post.description}</ContentType></ContainerText>
             </Content>
-        </Wrapper>
+        </Wrapper> */
     )
 }
 
