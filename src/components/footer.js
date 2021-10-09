@@ -15,7 +15,7 @@ function footer (){
                         </ul>
                     </FooterOptions>
                     <FooterLogo>
-                        <a href =""><img src="img/facebook-logo.svg" alt=""></img></a>
+                        <a href ="#"><img src="img/facebook-logo.svg" alt=""></img></a>
                         <p>© CETAV Bolsa de empleos | 2021</p>
                     </FooterLogo>
                 </Content>
