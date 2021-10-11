@@ -21,7 +21,8 @@ function Cards() {
                         <Jobs src="img/jobs.png" />
                         <Content>
                             <Title>{post.fields.career}</Title>
-                            <ContainerText><ContentType>{post.fields.type_job} {post.fields.job_level} {post.fields.description}</ContentType></ContainerText>
+                            <ContainerText><ContentType>{post.fields.description}</ContentType></ContainerText>
+                            <WrapperTags><Togletags>{post.fields.type_job}</Togletags><Togletags>{post.fields.job_level}</Togletags></WrapperTags>
                         </Content>
                     </Wrapper>
                 ))}
@@ -62,7 +63,7 @@ const ContainerText = styled.div`
 `
 
 const Title = styled.div`
-    color: #5E5E5E;
+    color: #5755CC;
     font-family: Open Sans;
     font-size: 11px;
     font-style: normal;
@@ -84,8 +85,26 @@ const ContentType = styled.p`
     line-height: 25px;
     top: 24px;
     width: 185px;
-    
 `
+const Togletags = styled.div`
+    align-items: center;
+    background: #E1ECF4;
+    border-radius: 5px;
+    color: #0C4066;
+    display: flex;
+    font-size: 10px;
+    height: 24px;
+    justify-content: center;
+    margin-left: 8px;
+    text-transform: uppercase;
+    width: 60px;
+`
+
+const WrapperTags = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
 const Jobs = styled.img`
     border-radius: 5px;
     float: left;
