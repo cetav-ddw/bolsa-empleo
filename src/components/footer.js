@@ -62,15 +62,14 @@ const FooterOptions = styled.div`
     font-size: 18px;
     width:100%;
     ul{
-        list-style:none
+        list-style:none;
+        margin-bottom : 24px;
     }
     li{
         border-bottom: 1px solid #ECECEC;
         padding: 16px 0px;
     }
-    a:last-of-type{
-        margin-bottom : 24px;
-    }
+
     img{
         margin: 0 auto;
         width:45px;

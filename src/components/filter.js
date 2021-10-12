@@ -7,7 +7,7 @@ export default function Filter(){
     });
     return(
         <Container>
-            <select value={filterValue.value} onChange={(e) => setValue({ value: e.target.value })} onClick ={()=>{console.log('Your job categorie is' + ' ' + filterValue.value)}}>
+            <select value={filterValue.value} onChange={(e) => setValue({ value: e.target.value })}>
                 <option disabled hidden value="Filtrar por tecnico">Filtrar por tecnico</option>
                 <option value="Diseño y desarrollo web">Diseño y desarrollo web</option>
                 <option value="Animación 3D">Animación digital 3D</option>

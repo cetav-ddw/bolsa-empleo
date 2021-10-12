@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import axios from 'axios'
-
+import Filter from './filter';
 function Cards() {
     const [post, setPost] = useState([])
     useEffect(() => {
         axios.get(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`)
             .then(res => {
-                setPost(res.data.records)
+                //opcion de filter aca si el value del section coincide con el career paselo 
+                const filteredOptions = res.data.records.filter((card) => card.fields.career.includes(Filter.filterValue.value))
+                if(filteredOptions){
+                    setPost(filteredOptions);
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -16,23 +20,17 @@ function Cards() {
     return (
         <div>
             {
-                post.map(post => (
-                    <Wrapper>
-                        <Jobs src="img/jobs.png" />
+                post.map((currElement) => (
+                    <Wrapper key = {currElement.createdTime}>
+                        <Jobs src={currElement.fields.logo[0].url}/>
                         <Content>
-                            <Title>{post.fields.career}</Title>
-                            <ContainerText><ContentType>{post.fields.type_job} {post.fields.job_level} {post.fields.description}</ContentType></ContainerText>
+                            <Title>{currElement.fields.career}</Title>
+                            <ContainerText><ContentType>{currElement.fields.type_job} {currElement.fields.job_level} {currElement.fields.description}</ContentType></ContainerText>
                         </Content>
                     </Wrapper>
-                ))}
+                ))
+            }
         </div>
-        /* <Wrapper>
-            <Jobs src="img/jobs.png" />
-            <Content>
-                <Title>{post.career}</Title>
-                <ContainerText><ContentType>{post.type_job} {post.job_level} {post.description}</ContentType></ContainerText>
-            </Content>
-        </Wrapper> */
     )
 }
 
@@ -84,7 +82,6 @@ const ContentType = styled.p`
     line-height: 25px;
     top: 24px;
     width: 185px;
-    
 `
 const Jobs = styled.img`
     border-radius: 5px;

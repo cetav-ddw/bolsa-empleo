@@ -1,6 +1,6 @@
 import './App.css';
 import Footer from './components/footer';
-import Filter from './components/filter';
+import Filter from './components/Cards';
 import Cards from './components/Cards';
 
 function App() {
