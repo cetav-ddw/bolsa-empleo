@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import axios from 'axios'
 
 function Cards() {
     const [post, setPost] = useState([])
     useEffect(() => {
-        axios.get(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`)
-            .then(res => {
-                setPost(res.data.records)
+        fetch('https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv')
+            .then((response) => response.json())
+            .then((res) => {
+                setPost(res.records);
             })
             .catch(err => {
                 console.log(err)
