@@ -90,6 +90,9 @@ const FooterOptions = styled.div`
     }
 `
 const FooterLogo = styled.div`
+    img{
+        margin-bottom : 24px;
+    }
     @media(min-width:1080px){
         img{
             margin-bottom: 16px;

@@ -1,14 +1,13 @@
-import {React,useState} from "react";
+import {React,useContext} from "react";
 import styled from 'styled-components';
+import { FilterContext } from '../filterContext';
 
 export default function Filter(){
-    const [filterValue, setValue] = useState({
-        value: "Filtrar por tecnico"
-    });
+    const [context,setContext] = useContext(FilterContext);
     return(
         <Container>
-            <select value={filterValue.value} onChange={(e) => setValue({ value: e.target.value })}>
-                <option disabled hidden value="Filtrar por tecnico">Filtrar por tecnico</option>
+            <select value={context} onChange={(e) => setContext( e.target.value )}>
+                <option value="Filtrar por tecnico">Todos los tecnicos</option>
                 <option value="Diseño y desarrollo web">Diseño y desarrollo web</option>
                 <option value="Animación 3D">Animación digital 3D</option>
                 <option value="PostProducción">Edición y Postproducción de imagen y sonido</option>
