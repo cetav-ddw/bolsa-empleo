@@ -1,15 +1,21 @@
 import React from "react";
 import styled, { StyledComponent } from 'styled-components';
-import hero from '../img/hero.svg'
 
-function Hero(props){
+
+
+
+function Hero(){
+    const info ={
+        name: "Bienvenidos",
+        hero:"img/hero.svg"
+    };
     return(
         <Background>
             <Wrapper>
                 <Flex> 
-                    <Welcome>{props.name}</Welcome>
+                    <Welcome>{info.name}</Welcome>
                     <Container>
-                        <Image src={hero} alt="hero_muñecos" />
+                        <Image src={info.hero} alt="hero_muñecos" />
                     </Container>
                 </Flex>
             </Wrapper>

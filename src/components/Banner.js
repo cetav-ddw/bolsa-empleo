@@ -1,23 +1,28 @@
 import React from "react";
 import styled, { StyledComponent } from 'styled-components';
 import { Wrapper } from "./Hero";
-import banner from "../img/banner.svg";
-import logo from "../img/logo.png";
 
-function Banner(props){
+
+function Banner(){
+    const info ={
+        title:"Creando Oportunidades",
+        subtitle:"CETAV | Bolsa de empleo",
+        banner:"img/banner.svg",
+        logo:"img/logo.png"
+    }
     return(
         <Background>
             <Wrapper>
                 <Flex>
                     <Paragraphs>
-                        <Title>{props.title}</Title>
-                        <Subtitle>{props.subtitle}</Subtitle>
+                        <Title>{info.title}</Title>
+                        <Subtitle>{info.subtitle}</Subtitle>
                     </Paragraphs>
                     <Container>
-                        <Image src={banner} alt="Banner" />
+                        <Image src={info.banner} alt="Banner" />
                     </Container>
                 </Flex>
-                <Logo src={logo} alt="Logo del cetav" />
+                <Logo src={info.logo} alt="Logo del cetav" />
             </Wrapper>
         </Background>
     );

@@ -1,23 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "./Hero";
-import subscriber from "../img/subscriber.svg"
 
 
-function Suscriber(props){
+
+
+function Suscriber(){
+    const info ={
+        name: "Suscribete a nuestro newsletter",
+        label:"Ingrese su Email:",
+        image:"img/subscriber.svg",
+        url:"https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58"
+    }
 
     return(
         <Wrapper>
             <Mailchimp id="mc_embed_signup">
                 <Container>
-                    <Image src={subscriber} alt="Subscribir" />
+                    <Image src={info.image} alt="Subscribir" />
                 </Container>
-                <Form action="https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                <Form action={info.url} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                     <div id="mc_embed_signup_scroll">
-                        <Title>{props.name}</Title>
+                        <Title>{info.name}</Title>
                         <Paragraph>We have so many ideas for new features that can help our partners manage their units even more efficiently. We promise you that we wont mail bomb you, just once in a month.</Paragraph>
                         <div className="mc-field-group">
-                            <Label htmlFor="mce-EMAIL">{props.label}</Label>
+                            <Label htmlFor="mce-EMAIL">{info.label}</Label>
                             <Flex>
                                 <Email type="email" defaultValue="" name="EMAIL" className="required email" id="mce-EMAIL" placeholder="E-mail" />
                                 <div className="clear">
