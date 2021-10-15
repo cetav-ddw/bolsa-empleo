@@ -1,13 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
 import Jobsview from './components/Jobsview';
+import PostOffer from './components/Postoffer';
 
 function App() {
   return (
-    <div className="App">
+    <Wrapper>
       <Jobsview />
-    </div>
+      <PostOffer />
+    </Wrapper>
+    
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  
+`

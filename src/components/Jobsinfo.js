@@ -34,7 +34,7 @@ function Jobsinfo({title, salarie, company, career, logo, description, email, jo
                     <p>La oferta laboral estará disponible 30 días.</p>
                 </JobImgInfo>
                 
-            </JobDetails>   
+            </JobDetails>
         </Wrap>
         
     )
