@@ -26,7 +26,7 @@ const Container = styled.div`
         border-radius : 4px;
         width:100%;
         height: 40px;
-        font-size:16px;
+        font-size:1rem;
         }
     }
 `

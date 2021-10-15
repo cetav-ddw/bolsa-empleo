@@ -6,7 +6,7 @@ function footer (){
         <Backrogund>
             <Container>
                 <Content>
-                    <SecondaryLogo src="img/logo-triada.png"/>
+                    <SecondaryLogo src="img/triada-logo.png"/>
                     <FooterOptions>
                         <ul>
                             <li><a href ="#">Inicio</a></li>
@@ -15,7 +15,7 @@ function footer (){
                         </ul>
                     </FooterOptions>
                     <FooterLogo>
-                        <a href ="#"><img src="img/facebook-logo.svg" alt=""></img></a>
+                        <a href ="#"><img src="img/facebook-logo.svg" alt="Facebook Logo"></img></a>
                         <p>© CETAV Bolsa de empleos | 2021</p>
                     </FooterLogo>
                 </Content>
@@ -28,7 +28,7 @@ export default footer
 
 const Backrogund = styled.div`
     width:100%;
-    background: black;
+    background: #292929;
     height: auto;
 `
 
