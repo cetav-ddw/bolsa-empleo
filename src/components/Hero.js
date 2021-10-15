@@ -6,19 +6,17 @@ function Hero(props){
     return(
         <Background>
             <Wrapper>
-                <Welcome>{props.name}</Welcome>
-                <Container>
-                    <Image src={hero} alt="hero_muñecos" />
-                </Container>
+                <Flex> 
+                    <Welcome>{props.name}</Welcome>
+                    <Container>
+                        <Image src={hero} alt="hero_muñecos" />
+                    </Container>
+                </Flex>
             </Wrapper>
         </Background>
     )
 
 }
-
-
-
-
 
 const Background = styled.div`
     background-color: #E1ECF4;
@@ -39,12 +37,10 @@ const Wrapper = styled.div`
 
 const Welcome = styled.p`
     color:#292929;
-    margin: 0;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: 1.375rem;
     font-weight: 500;
-    padding-top:40px;
     position:absolute;
     z-index: 1;
     @media(min-width:834px){
@@ -59,14 +55,19 @@ const Image = styled.img`
 `
 const Container = styled.div`
     width:100%;
-    padding-left: 99px;
+    padding-left: 175px;
     padding-top: 45px;
     @media(min-width:834px){
-        padding-left: 233px;
+        padding-left: 388px;
     }
     @media(min-width:1440px){
-        padding-left: 310px;
+        padding-left: 527px;
     }
+`
+const Flex = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
 export {Hero, Wrapper} ;
 
