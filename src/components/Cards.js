@@ -59,8 +59,12 @@ const Wrapper = styled.div`
         justify-content: space-between;
         margin-top: 200px;
         margin: 22px auto;
-        width: 770px;
-    }
+        border-radius: 10px 0px;
+        border: 2px solid #5E5E5E;
+        justify-content: space-between;
+        margin-top: 200px;
+        margin: 22px auto;
+        width: 333px;
     @media(max-width:375px){
         border-radius: 10px 0px;
         border: 2px solid #5E5E5E;
@@ -187,8 +191,6 @@ const ContentType = styled.p`
     }
 `
 const Togletags = styled.div`
-    @media(max-width:834px){
-    }
     @media(max-width:375px){
         align-items: center;
         background: #E1ECF4;
@@ -205,9 +207,6 @@ const Togletags = styled.div`
 `
 
 const WrapperTags = styled.div`
-    @media(max-width:834px){
-        
-    }
     @media(max-width:375px){
         display: flex;
         flex-direction: row;

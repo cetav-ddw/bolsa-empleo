@@ -99,7 +99,7 @@ const LogoContainer = styled.div`
     fill: #fff;
     margin-right: 0.5rem;
   }
-`;
+`
 
 const Menu = styled.ul`
   height: 100%;
