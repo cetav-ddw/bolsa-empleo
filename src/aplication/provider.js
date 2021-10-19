@@ -7,7 +7,6 @@ const filterOptions = 'Filtrar por tecnico'
 
 const MyProvider = (props) =>{
     const [context,setContext] = useState(filterOptions)
-    console.log('Context',context)
     return(
         <div>
             <FilterContext.Provider value = {[context,setContext]}>

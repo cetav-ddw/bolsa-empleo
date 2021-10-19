@@ -93,6 +93,9 @@ const FooterOptions = styled.div`
     }
 `
 const FooterLogo = styled.div`
+    p{
+        color:white;
+    }
     img{
         margin-bottom : 24px;
     }

@@ -27,6 +27,8 @@ const Container = styled.div`
         width:100%;
         height: 40px;
         font-size:1rem;
+        option{
+            color:white;
         }
     }
 `

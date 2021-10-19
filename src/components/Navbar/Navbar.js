@@ -124,7 +124,6 @@ const Menu = styled.ul`
 
 const MenuItem = styled.li`
   height: 100%;
-
   img{
     display: none;
   }
@@ -160,6 +159,7 @@ const MenuItemLink = styled.a`
   }
 
   div {
+    color:white;
     width: 100%;
     height: 100%;
     display: flex;
