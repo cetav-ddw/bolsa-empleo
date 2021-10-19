@@ -68,6 +68,9 @@ const FooterOptions = styled.div`
     li{
         border-bottom: 1px solid #ECECEC;
         padding: 16px 0px;
+        a{
+            color:white;
+        }
     }
 
     img{

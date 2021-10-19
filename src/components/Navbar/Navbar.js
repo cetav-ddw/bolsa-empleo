@@ -7,7 +7,7 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const props = {
-    logo:"./img/triada-logo.png",
+    logo:"./img/triada-logo-header.png",
     title:"Bolsa de empleo",
     homelogo:"./img/home.png",
     homename:"Inicio",
