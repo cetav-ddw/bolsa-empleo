@@ -5,7 +5,7 @@ import { FilterContext } from '../filterContext';
 
 function Cards() {
     const [post, setPost] = useState([])
-    const [context,setContext] = useContext(FilterContext);
+    const [context] = useContext(FilterContext);
     useEffect(() => {
         fetch('https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv')
             .then((response) => response.json())
