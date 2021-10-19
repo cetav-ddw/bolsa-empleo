@@ -9,9 +9,9 @@ function footer (){
                     <SecondaryLogo src="img/triada-logo.png"/>
                     <FooterOptions>
                         <ul>
-                            <li><a href ="#">Inicio</a></li>
-                            <li><a href ="#">Ofertas Laborales</a></li>
-                            <li><a href ="#">Publicar Oferta Laboral</a></li>
+                            <li><a href ="#" aria-label="Pagina principal">Inicio</a></li>
+                            <li><a href ="#"  aria-label="Ofertas de empleo disponibles">Ofertas Laborales</a></li>
+                            <li><a href ="#" aria-label="Publicar oferta de empleo ">Publicar Oferta Laboral</a></li>
                         </ul>
                     </FooterOptions>
                     <FooterLogo>
@@ -44,7 +44,7 @@ const Content = styled.div`
     align-items:center;
     display: flex;
     flex-direction: column;
-    text-align-center;
+    text-align:center;
     @media(min-width:1080px){
         flex-direction: row;
         justify-content: space-between;
