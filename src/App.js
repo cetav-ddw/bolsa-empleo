@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import Jobsview from './components/Jobsview';
-import PostOffer from './components/Postoffer';
+/* import Jobsview from './components/Jobsview'; */
+/* import PostOffer from './components/Postoffer'; */
+import Routes from './components/ Routesconcept';
 
 function App() {
   return (
     <Wrapper>
-      <Jobsview />
-      <PostOffer />
+      <Routes />  
     </Wrapper>
-    
   );
 }
 

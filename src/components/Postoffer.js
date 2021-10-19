@@ -1,14 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { useHistory } from 'react-router-dom';
 
-function PostOffer() {
+
+function PostOffer(props) {
+
+    let history = useHistory();
+
+    const redirect = () => {
+        history.push("../pages/Publicar")
+    }
+
     return (
         <WrapperPost>
             <ButtonWrapper>
                 <AnchorWrapper>
+                    <button onClick ={redirect}>
+                        Click me!
+                    </button>
                     <AnchorPostOffer>
-                        <a href="#">Publicar Oferta Laboral</a>
+                        <a href="../pages/Publicar">Publicar Oferta Laboral</a>
                     </AnchorPostOffer>
                     <ArrowIcon />
                 </AnchorWrapper>
