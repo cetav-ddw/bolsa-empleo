@@ -72,7 +72,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 1300px;
+  min-width: 375px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -123,21 +123,21 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  height: 100%;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
 
   img{
-    display: none;
+    display: block;
+    padding-right: 12px;
   }
 
-  @media screen and (max-width: 960px) {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
+  @media screen and (min-width: 960px) {
+    height: 100%;
 
     img{
-      display: block;
-      padding-right: 12px;
+      display: none;
     }
   }
 `;
@@ -173,7 +173,7 @@ const MenuItemLink = styled.a`
     }
   }
 
-  @media screen and (max-width: 960px) {
+  @media screen and (min-width: 960px) {
     width: 100%;
 
     div {
@@ -186,7 +186,7 @@ const MenuItemLink = styled.a`
     }
   }
 
-  @media screen and (max-width: 880px) {
+  @media screen and (min-width: 880px) {
     div {
       width: 90%;
       justify-content: left;
@@ -197,7 +197,7 @@ const MenuItemLink = styled.a`
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 500px) {
     div {
       width: 90%;
       justify-content: left;
@@ -208,7 +208,7 @@ const MenuItemLink = styled.a`
     }
   }
 
-  @media screen and (max-width: 260px) {
+  @media screen and (min-width: 260px) {
     div {
       width: 100%;
       justify-content: left;
@@ -221,9 +221,6 @@ const MenuItemLink = styled.a`
 `;
 
 const MobileIcon = styled.div`
-  display: none;
-
-  @media screen and (max-width: 960px) {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -232,5 +229,9 @@ const MobileIcon = styled.div`
       fill: #fff;
       margin-right: 2rem;
     }
+
+
+  @media screen and (min-width: 960px) {
+    display: none;
   }
 `;
