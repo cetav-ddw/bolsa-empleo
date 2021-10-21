@@ -10,7 +10,7 @@ function footer (){
                     <FooterOptions>
                         <ul>
                             <li><a href ="#" aria-label="Pagina principal">Inicio</a></li>
-                            <li><a href ="#"  aria-label="Ofertas de empleo disponibles">Ofertas Laborales</a></li>
+                            <li><a href ="#" aria-label="Ofertas de empleo disponibles">Ofertas Laborales</a></li>
                             <li><a href ="#" aria-label="Publicar oferta de empleo ">Publicar Oferta Laboral</a></li>
                         </ul>
                     </FooterOptions>
@@ -33,10 +33,15 @@ const Backrogund = styled.div`
 `
 
 const Container = styled.div`
-    width: 80%;
-    margin: 0 auto;
-    @media(min-width:1080px){
-        padding:40px 0;
+    margin: 0 1rem;
+    @media(min-width:834px){
+        margin: 0 2rem;
+    }
+    @media(min-width:1040px){
+        margin: 0 8.5rem;
+    }
+    @media(min-width:1440px){
+        margin: 0 12.5rem;
     }
 `
 
@@ -45,7 +50,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     text-align:center;
-    @media(min-width:1080px){
+    @media(min-width:1040px){
         flex-direction: row;
         justify-content: space-between;
     }
@@ -81,8 +86,8 @@ const FooterOptions = styled.div`
     p{
         margin-top : 24px;
     }
-    @media(min-width:1080px){
-        width:32%;
+    @media(min-width:1040px){
+        width:25%;
         li{
             border-bottom:none;
             text-align:left;
@@ -99,7 +104,7 @@ const FooterLogo = styled.div`
     img{
         margin-bottom : 24px;
     }
-    @media(min-width:1080px){
+    @media(min-width:1040px){
         img{
             margin-bottom: 16px;
         }
