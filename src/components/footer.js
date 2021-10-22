@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function footer (){
+function Footer (){
     return(
         <Backrogund>
             <Container>
@@ -24,7 +24,7 @@ function footer (){
     )
 }
 
-export default footer
+export default Footer
 
 const Backrogund = styled.div`
     width:100%;

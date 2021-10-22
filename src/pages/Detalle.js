@@ -1,16 +1,16 @@
 import React from "react";
-import Navbar from '../components/Navbar'
-import Form from "../components/Form"
+import Navbar from '../components/Navbar
 import Footer from "../components/Footer";
+import Jobsview from "../components/Jobsview";
 
 
-function Publicar() {
+function Detalle() {
     return (
         <div>
             <Navbar />
-            <Form />
+            <Jobsview />
             <Footer />
         </div>
     )}
 
-export default Publicar;
+export default Detalle;

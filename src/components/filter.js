@@ -6,6 +6,7 @@ export default function Filter(){
     const [context,setContext] = useContext(FilterContext);
     return(
         <Container>
+            <h1>Ofertas Laborales</h1>
             <select value={context} onChange={(e) => setContext( e.target.value )}>
                 <option value="Filtrar por tecnico">Todos los tecnicos</option>
                 <option value="Diseño y desarrollo web">Diseño y desarrollo web</option>
@@ -18,8 +19,11 @@ export default function Filter(){
 }
 
 const Container = styled.div`
-    width: 365px;
+    width: 100%;
     margin: 0 auto;
+    h1{
+        margin-bottom:2rem;
+    }
     select{
         color:white;
         background-color: black;
@@ -30,8 +34,16 @@ const Container = styled.div`
         option{
             color:white;
         }
+        @media(min-width:834px){
+            width:24%
+        }
+        @media(min-width:1040px){
+            width:15%
+        }
+    }
+    @media(min-width:834px){
+        width: 80%;
+        display:flex;
+        justify-content:space-between;
     }
 `
-
-
-

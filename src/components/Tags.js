@@ -2,25 +2,29 @@ import React from "react";
 import styled from 'styled-components'
 
 const Tags = (props) => {
-    return <Wrapper><Togletags>{props.name}</Togletags><Togletags>{props.name}</Togletags></Wrapper>
+    return <WrapperTags><TogleTags>{props.name}</TogleTags><TogleTags>{props.name}</TogleTags></WrapperTags>
 }
 
-export default Tags;
-
-const Wrapper = styled.div`
+const WrapperTags = styled.div`
     display: flex;
     flex-direction: row;
+    width: 100%;
 `
-const Togletags = styled.div`
+const TogleTags = styled.div`
+    font-family: 'Open Sans', sans-serif;
     align-items: center;
     background: #E1ECF4;
     border-radius: 5px;
     color: #0C4066;
     display: flex;
-    font-size: 12px;
-    height: 24px;
+    font-size: 0.5rem;
+    height: 30px;
     justify-content: center;
     margin-left: 8px;
     text-transform: uppercase;
-    width: 60px;
+    width: 100px;
+    text-align: center;
+    font-weight: 700;
 `
+
+export {WrapperTags, TogleTags, Tags}

@@ -16,9 +16,9 @@ function PostOffer(props) {
         <WrapperPost>
             <ButtonWrapper>
                 <AnchorWrapper>
-                    <button onClick ={redirect}>
+                    {/* <button onClick ={redirect}>
                         Click me!
-                    </button>
+                    </button> */}
                     <AnchorPostOffer>
                         <a href="../pages/Publicar">Publicar Oferta Laboral</a>
                     </AnchorPostOffer>
@@ -39,6 +39,7 @@ const ButtonWrapper = styled.div`
     width: 343px;
     margin: 0 auto;
     display: flex;
+    margin-top: 36px;
 
     @media (min-width: 834px) {
         width: 770px;

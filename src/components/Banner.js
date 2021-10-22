@@ -11,8 +11,8 @@ function Banner(){
         logo:"img/logo.png"
     }
     return(
-        <Background>
-            <Wrapper>
+        <Wrapper>
+            <Background>
                 <Flex>
                     <Paragraphs>
                         <Title>{info.title}</Title>
@@ -22,9 +22,8 @@ function Banner(){
                         <Image src={info.banner} alt="Banner" />
                     </Container>
                 </Flex>
-                <Logo src={info.logo} alt="Logo del cetav" />
-            </Wrapper>
-        </Background>
+            </Background>
+        </Wrapper>
     );
 }
 
@@ -39,6 +38,7 @@ const Flex = styled.div`
 const Background = styled.div`
     background: #5755CC;
     width:100%;
+    margin-bottom: 48px;
 
 `
 const Title = styled.h2`
@@ -71,14 +71,6 @@ const Container = styled.div`
 const Image = styled.img`
     width: 100%;
     
-`
-const Logo = styled.img`
-    width: 100%;
-    padding-top:48px;
-    @media(min-width:834px){
-        width: 30%;
-        padding-top:0;
-    }
 `
 const Paragraphs = styled.div`
     @media(min-width:834px){
