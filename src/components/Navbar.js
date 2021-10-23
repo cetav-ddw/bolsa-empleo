@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import styled from "styled-components";
+import styled from "styled-components";import { Link } from "react-router-dom"
+
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -10,11 +11,8 @@ const Navbar = () => {
     logo:"./img/triada-logo-header.png",
     title:"Bolsa de empleo",
     homelogo:"./img/home.png",
-    homename:"Inicio",
     postlogo:"./img/ic_baseline-post-add.png",
-    postname:"Publicar Oferta",
     ofertslogo:"./img/card_travel.png",
-    ofertsname:"Ofertas Laborales"
   }
 
   return (
@@ -34,25 +32,27 @@ const Navbar = () => {
             <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <img src={props.homelogo} alt="home page icon link"/>
-                <div>
-                  {props.homename}
-                </div>
+                <MenuAnchor>
+                  <Link to="/">Inicio</Link>
+                </MenuAnchor>
               </MenuItemLink>
             </MenuItem>
-            <MenuItem>
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <img src={props.postlogo} alt="post ofert page icon link"/>
-                <div>
-                  {props.postname}
-                </div>
-              </MenuItemLink>
-            </MenuItem>
+            
             <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <img src={props.ofertslogo} alt="all oferts page icon link"/>
-                <div>
-                  {props.ofertsname}
-                </div>
+                <MenuAnchor>
+                  <Link to="/ofertas">Ofertas Laborales</Link>
+                </MenuAnchor>
+              </MenuItemLink>
+            </MenuItem>
+
+            <MenuItem>
+              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                <img src={props.postlogo} alt="post ofert page icon link"/>
+                <MenuAnchor>
+                  <Link to="/publicar">Publicar Oferta Laboral</Link>
+                </MenuAnchor>
               </MenuItemLink>
             </MenuItem>
           </Menu>
@@ -68,6 +68,9 @@ const Container = styled.div`
   width: 100%;
   height: 100px;
   background-color: #292929;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 const Wrapper = styled.div`
@@ -92,18 +95,20 @@ const LogoContainer = styled.div`
       color: #fff;
       padding: 4px;
       width: 143px;
+    }
   }
   svg {
     fill: #fff;
     margin-right: 0.5rem;
   }
-`;
+`
 
 const Menu = styled.ul`
   height: 100%;
   display: flex;
   justify-content: space-between;
   list-style: none;
+
   @media screen and (max-width: 960px) {
     background-color: #292929e5;
     position: absolute;
@@ -117,7 +122,7 @@ const Menu = styled.ul`
     align-items: center;
     transition: 0.5s all ease;
   }
-`;
+`
 
 const MenuItem = styled.li`
   height: 100%;
@@ -134,7 +139,34 @@ const MenuItem = styled.li`
       padding-right: 12px;
     }
   }
-`;
+`
+
+const MenuAnchor = styled.div`
+
+  a{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  @media (min-width: 1440px) {
+
+    a::after{
+      background-color: white;
+      content: '';
+      display: block;
+      height: 2px;
+      transition: width .3s;
+      width: 0;
+    }
+
+    a:hover::after{
+      transition: width .3s;
+      width: 100%;
+    }
+  }
+`
 
 const MenuItemLink = styled.a`
   display: flex;
@@ -147,10 +179,7 @@ const MenuItemLink = styled.a`
   font-size: 1.2rem;
   cursor: pointer;
   transition: 0.5s all ease;
-  &:hover {
-    text-decoration: underline;
-    transition: 0.5s all ease;
-  }
+
   div {
     width: 100%;
     height: 100%;
@@ -200,7 +229,7 @@ const MenuItemLink = styled.a`
       }
     }
   }
-`;
+`
 
 const MobileIcon = styled.div`
   display: none;
@@ -213,4 +242,4 @@ const MobileIcon = styled.div`
       margin-right: 2rem;
     }
   }
-`;
+`
