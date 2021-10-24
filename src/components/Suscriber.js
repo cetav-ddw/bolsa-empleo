@@ -74,6 +74,9 @@ const Email = styled.input`
     margin-top:10px;
     font-size: 1rem;
     color:#292929;
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        padding-left: 10px;
+    }
     @media(min-width:834px){
         width: 100%;
         margin-top:0;
@@ -135,6 +138,7 @@ const Image = styled.img`
 }
 `
 const Mailchimp = styled.div`
+    margin-bottom: 48px;
     @media(min-width:834px){
         display:flex;
         align-items: center;

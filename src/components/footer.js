@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
-function footer (){
+function Footer (){
     return(
         <Backrogund>
             <Container>
@@ -9,9 +10,9 @@ function footer (){
                     <SecondaryLogo src="img/triada-logo.png"/>
                     <FooterOptions>
                         <ul>
-                            <li><a href ="#" aria-label="Pagina principal">Inicio</a></li>
-                            <li><a href ="#" aria-label="Ofertas de empleo disponibles">Ofertas Laborales</a></li>
-                            <li><a href ="#" aria-label="Publicar oferta de empleo ">Publicar Oferta Laboral</a></li>
+                            <li><Link to="/">Inicio</Link></li>
+                            <li><Link to="/ofertas">Ofertas Laborales</Link></li>
+                            <li><Link to="/publicar">Publicar Oferta Laboral</Link></li>
                         </ul>
                     </FooterOptions>
                     <FooterLogo>
@@ -24,7 +25,7 @@ function footer (){
     )
 }
 
-export default footer
+export default Footer
 
 const Backrogund = styled.div`
     width:100%;

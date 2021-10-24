@@ -1,6 +1,7 @@
 import React, { useState, useEffect,useContext } from 'react'
 import styled from 'styled-components';
 import { FilterContext } from '../filterContext';
+import {WrapperTags, TogleTags} from './Tags';
 
 function Cards() {
     const [post, setPost] = useState([])
@@ -33,7 +34,7 @@ function Cards() {
                         <Content>
                             <Title>{currElement.fields.career}</Title>
                             <ContainerText><ContentType>{currElement.fields.description}</ContentType></ContainerText>
-                            <WrapperTags><Togletags>{currElement.fields.type_job}</Togletags><Togletags>{currElement.fields.job_level}</Togletags></WrapperTags>
+                            <WrapperTags><TogleTags>{currElement.fields.type_job}</TogleTags><TogleTags>{currElement.fields.job_level}</TogleTags></WrapperTags>
                         </Content>
                     </Wrapper>
                 ))}
@@ -145,24 +146,6 @@ const ContentType = styled.p`
         width: 290px;
     }
 `
-const Togletags = styled.div`
-    align-items: center;
-    background: #E1ECF4;
-    border-radius: 5px;
-    color: #0C4066;
-    display: flex;
-    font-size: 10px;
-    height: 24px;
-    justify-content: center;
-    margin-left: 8px;
-    text-transform: uppercase;
-    width: 60px;
-`
-
-const WrapperTags = styled.div`
-    display: flex;
-    flex-direction: row;
-`
 
 const Jobs = styled.img`
     border-radius: 5px;
@@ -180,9 +163,9 @@ const Jobs = styled.img`
     @media(min-width:1440px){
         border-radius: 5px;
         float: left;
-        height: 200px;
-        width: 240px;
-        margin: 16px auto;
+        height: 187px;
+        margin: 16px 16px;
+        width: 300px;
     }
 `
 

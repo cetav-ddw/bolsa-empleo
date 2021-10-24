@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Publicar from "../pages/Publicar"
+/* import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; */
+/* import Publicar from "../pages/Publicar"
 import Home from "../pages/Home"
 import Ofertas from "../pages/Ofertas"
-import Menuconceptos from "../components/Menuconceptos"
+import Menuconceptos from "../components/Menuconceptos" */
 
 function Routesconcept() {
     return (
         <div>
-            <Router>
+            {/* <Router>
                 <Menuconceptos/>
                 <Switch>
                     <Route exact path="/">
@@ -20,7 +20,7 @@ function Routesconcept() {
                         <Ofertas/>
                     </Route>
                 </Switch>             
-            </Router>
+            </Router> */}
         </div>
     )
 }
