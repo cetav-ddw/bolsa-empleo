@@ -111,7 +111,7 @@ const Menu = styled.ul`
     background-color: #292929e5;
     position: absolute;
     top: 100px;
-    left: ${({ open }) => (open ? "0" : "-100%")}; //Import
+    right: ${({ open }) => (open ? "0" : "-100%")}; //Import
     width: 375px;
     height: 90vh;
     justify-content: start;
