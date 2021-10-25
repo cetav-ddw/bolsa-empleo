@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from '../components/Navbar'
 import Cards from "../components/Cards";
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import Filter from "../components/Filter";
 import MyProvider from "../aplication/provider"
 import Banner from "../components/Banner";
+import Secondnavbar from "../components/Secondnavbar";
 
 function Ofertas() {
     return (
         <div>
-            <Navbar />
+            <Secondnavbar />
             <MyProvider value = "Filtrar por tecnico">
                 <Filter />
                 <Cards />

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import styled from "styled-components";import { Link } from "react-router-dom"
+//import HomeIcon from '@mui/icons-material/Home';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const props = {
-    logo:"./img/triada-logo-header.png",
-    title:"Bolsa de empleo",
+    logo:"./img/principal-logo.png",
     homelogo:"./img/home.png",
     postlogo:"./img/ic_baseline-post-add.png",
     ofertslogo:"./img/card_travel.png",
@@ -21,7 +22,6 @@ const Navbar = () => {
         <IconContext.Provider value={{ style: { fontSize: "2em" } }}>
           <LogoContainer>
             <img src={props.logo} alt="logo CETAV"/>
-            <p>{props.title}</p>  
           </LogoContainer>
 
           <MobileIcon onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -32,6 +32,7 @@ const Navbar = () => {
             <MenuItem>
               <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 <img src={props.homelogo} alt="home page icon link"/>
+                {/* <HomeIcon/> */}
                 <MenuAnchor>
                   <Link to="/">Inicio</Link>
                 </MenuAnchor>
@@ -71,35 +72,40 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-`;
+`
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 343px;
   max-width: 1300px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: auto;
-`;
+  margin: 0 auto;
+
+  @media (min-width: 834px) {
+    width: 770px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1040px;
+  }
+`
 
 const LogoContainer = styled.div`
-  margin-left: 2rem;
+  //margin-left: 2rem;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
   font-family: sans-serif;
-  p {
-    &:nth-child(2) {
-      border-left: 2px solid white;
-      color: #fff;
-      padding: 4px;
-      width: 143px;
-    }
+  width: 180px;
+
+  img {
+    width: 100%;
   }
   svg {
     fill: #fff;
-    margin-right: 0.5rem;
+    //margin-right: 0.5rem;
   }
 `
 
@@ -180,6 +186,11 @@ const MenuItemLink = styled.a`
   cursor: pointer;
   transition: 0.5s all ease;
 
+  @media (min-width: 1440px) {
+    padding: 0;
+    margin-left: 20px;
+  }
+
   div {
     width: 100%;
     height: 100%;
@@ -189,7 +200,7 @@ const MenuItemLink = styled.a`
     svg {
       display: none;
       fill: #e0792a;
-      margin-right: 0.5rem;
+      //margin-right: 0.5rem;
     }
   }
   @media screen and (max-width: 960px) {
@@ -239,7 +250,7 @@ const MobileIcon = styled.div`
     cursor: pointer;
     svg {
       fill: #fff;
-      margin-right: 2rem;
+      //margin-right: 2rem;
     }
   }
 `
