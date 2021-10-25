@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Publicar from "./components/Publicar"
-import Home from "./components/Home"
-import Ofertas from "./components/Ofertas"
+import Home from "./pages/Home"
+import Ofertas from "./pages/Ofertas"
+import ErrorPage from "./pages/Error404";
 
 function App() {
   return (
@@ -11,11 +11,11 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route> 
-          <Route exact path="/publicar">
-            <Publicar/>
-          </Route>
           <Route exact path="/ofertas">
             <Ofertas/>
+          </Route>
+          <Route exact path="*">
+            <ErrorPage/>
           </Route>
         </Switch>             
       </Router>

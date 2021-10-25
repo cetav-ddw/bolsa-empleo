@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from "../components/Cards";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 import MyProvider from "../aplication/provider"
 import Banner from "../components/Banner";
