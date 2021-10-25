@@ -8,7 +8,6 @@ function Menuconceptos() {
                     <span>Componente Link</span>
                     <Link to="/">Inicio</Link>
                     <Link to="/ofertas">Ofertas Laborales</Link>
-                    <Link to="/publicar">Publicar Oferta Laboral</Link>
                 </li>
             </ol> 
         </nav>

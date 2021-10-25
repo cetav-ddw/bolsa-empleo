@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from '../components/Navbar'
 import {Hero}  from "../components/Hero";
-import Postofferbutton from "../components/Postofferbutton"
 import Cards from "../components/Cards";
 import Suscriber from "../components/Suscriber";
 import Footer from "../components/Footer";
@@ -14,7 +13,6 @@ function Home() {
         <div>
             <Navbar />
             <Hero />
-            <Postofferbutton />
             <MyProvider>
                 <Cards />
             </MyProvider>

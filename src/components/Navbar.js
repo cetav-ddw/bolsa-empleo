@@ -46,15 +46,6 @@ const Navbar = () => {
                 </MenuAnchor>
               </MenuItemLink>
             </MenuItem>
-
-            <MenuItem>
-              <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <img src={props.postlogo} alt="post ofert page icon link"/>
-                <MenuAnchor>
-                  <Link to="/publicar">Publicar Oferta Laboral</Link>
-                </MenuAnchor>
-              </MenuItemLink>
-            </MenuItem>
           </Menu>
         </IconContext.Provider>
       </Wrapper>

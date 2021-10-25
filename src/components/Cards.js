@@ -2,6 +2,7 @@ import React, { useState, useEffect,useContext } from 'react'
 import styled from 'styled-components';
 import { FilterContext } from '../filterContext';
 import {WrapperTags, TogleTags} from './Tags';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 function Cards() {
     const [post, setPost] = useState([])
@@ -27,26 +28,40 @@ function Cards() {
     })
     return (
         <div>
+            <PrincipalTitle>Ofertas de empleo</PrincipalTitle>
             {
                 post.map(currElement => (
-                    <Wrapper key = {currElement.createdTime}>
-                        <Jobs src={currElement.fields.logo[0].url}/>
-                        <Content>
-                            <Title>{currElement.fields.career}</Title>
-                            <ContainerText><ContentType>{currElement.fields.description}</ContentType></ContainerText>
-                            <WrapperTags><TogleTags>{currElement.fields.type_job}</TogleTags><TogleTags>{currElement.fields.job_level}</TogleTags></WrapperTags>
-                        </Content>
-                    </Wrapper>
+                    <Container>
+                        <Wrapper key = {currElement.createdTime}>
+                            <Jobs src={currElement.fields.logo[0].url}/>
+                            <Content>
+                                <Title>{currElement.fields.career.join(", ")}</Title>
+                                <ContainerText><ContentType>{currElement.fields.name_job}</ContentType></ContainerText>
+                                <WrapperTags><TogleTags>{currElement.fields.type_job}</TogleTags><TogleTags>{currElement.fields.job_level}</TogleTags></WrapperTags>
+                                <Link>
+                                    Más Información
+                                    <ArrowIcon />
+                                </Link>
+                            </Content>
+                        </Wrapper>
+                    </Container>
                 ))}
         </div>
     )
 }
 
+const Container = styled.div`
+    @media(min-width:1440px){
+        display: flex;
+        
+    }
+`
+
 const Wrapper = styled.div`
-    border-radius: 10px 0px;
+    border-radius: 5px;
     border: 2px solid #5E5E5E;
     display: flex;
-    height: 177px;
+    height: 190px;
     justify-content: space-between;
     margin-top: 200px;
     margin: 22px auto;
@@ -57,20 +72,52 @@ const Wrapper = styled.div`
         width: 770px;
     }
     @media(min-width:1440px){
-        border-radius: 10px 0px;
+        border-radius: 5px;
         border: 2px solid #5E5E5E;
-        justify-content: space-between;
-        margin-top: 200px;
-        margin: 22px auto;
-        height: 544px;
+        height: 530px;
         width: 333px;
+        flex-wrap: wrap;
     }
 `
+const PrincipalTitle = styled.h1`
+    font-family: 'Poppins', sans-serif;
+    color: #292929;
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 16px;
+    margin-top: 40px;
+    @media(min-width:834px){
+        font-size: 37px;
+        margin-left: 32px;
+        margin-top: 50px;
+    }
+`
+const ArrowIcon = styled(ArrowForwardIosIcon)`
+    color: #5755CC;
+`
+const Link = styled.a`
+    display: none;
+    @media(min-width:1440px){
+        display: block;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: #5755CC;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        margin-left: 138px;
+        margin-top: 40px;
+    }
+    :hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`;
 const Content = styled.div`
     align-items: start; 
     display: flex;
     flex-direction: column;
-    height: 139px;
     margin-right: 16px;
     width: 187px;
     @media(min-width:834px){
@@ -85,18 +132,16 @@ const Content = styled.div`
         margin-left: 16px;
         margin-top: 220px;
         position: absolute;
-        width: 265px;
+        width: 300px;
     }
 `
 
 const ContainerText = styled.div`
     align-items: start; 
     text-align: left;
-    width: 185px;
     @media(min-width:834px){
         align-items: start; 
         text-align: left;
-        width: 456px;
     }
     @media(min-width:1440px){
         text-align: left;
@@ -105,45 +150,37 @@ const ContainerText = styled.div`
 `
 
 const Title = styled.div`
+    margin-left: 4px;
     color: #5755CC;
-    font-size: 11px;
-    font-weight: bold;
-    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 23px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
 @media(min-width:1440px){
     color: #7C7C7C;
-    font-family: Open Sans;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: 15px;
+    line-height: 23px;
     margin-top: 24px;
-    text-transform: uppercase;
+
 }
 `
 
 const ContentType = styled.p`
+    margin-left: 4px;
     color: #292929;
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     height: 75px;
-    left: 0px;
-    letter-spacing: 0.005em;
-    line-height: 25px;
-    top: 24px;
     width: 185px;
+    margin-top: 15px;
     @media(min-width:1440px){
         color: #5E5E5E;
-        font-family: Open Sans;
         font-size: 26px;
-        font-style: normal;
-        font-weight: normal;
         height: 75px;
-        left: 0px;
-        letter-spacing: 0.005em;
-        line-height: 25px;
-        width: 290px;
+        margin-bottom: 30px;
     }
 `
 
@@ -154,12 +191,6 @@ const Jobs = styled.img`
     margin-left: 16px;
     margin-top: 38px;
     width: 100px;
-    @media(min-width:834px){
-        height: 100px;
-        margin-left: 16px;
-        margin-top: 38px;
-        width: 100px;
-    }
     @media(min-width:1440px){
         border-radius: 5px;
         float: left;
