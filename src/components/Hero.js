@@ -11,9 +11,7 @@ function Hero(){
             <Wrapper>
                 <Flex> 
                     <Welcome>{info.name}</Welcome>
-                    <Container>
-                        <Image src={info.hero} alt="hero_muñecos" />
-                    </Container>
+                    <Image src={info.hero} alt="hero_muñecos" />
                 </Flex>
             </Wrapper>
         </Background>
@@ -23,16 +21,20 @@ function Hero(){
 const Background = styled.div`
     background-color: #E1ECF4;
     width:100%;
+    
 `
 
 const Wrapper = styled.div`
     width: 91.5%;
     margin: 0 auto;
+    border: 2px solid tomato;
     @media(min-width:834px){
         width:92%;
+        border: 2px solid green;
     }
     @media(min-width:1440px){
         width:72%;
+        border: 2px solid blue;
     }
 
 `
@@ -43,8 +45,6 @@ const Welcome = styled.p`
     font-family: 'Poppins', sans-serif;
     font-size: 1.375rem;
     font-weight: 500;
-    position:absolute;
-    z-index: 1;
     @media(min-width:834px){
         font-size: 1.625rem;
     }
@@ -53,23 +53,17 @@ const Welcome = styled.p`
     }
 `
 const Image = styled.img`
-    width: 100%;
-`
-const Container = styled.div`
-    width:100%;
-    padding-left: 175px;
-    padding-top: 45px;
-    @media(min-width:834px){
-        padding-left: 388px;
-    }
-    @media(min-width:1440px){
-        padding-left: 527px;
-    }
+    width:50%;
+    max-width: 100%;
+    height: auto;
 `
 const Flex = styled.div`
+    padding: 48px 0px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 `
+
+
 export {Hero, Wrapper} ;
 

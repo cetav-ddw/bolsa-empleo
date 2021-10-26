@@ -28,7 +28,6 @@ function Cards() {
     })
     return (
         <div>
-            <PrincipalTitle>Ofertas de empleo</PrincipalTitle>
             {
                 post.map(currElement => (
                     <Container>
@@ -79,19 +78,7 @@ const Wrapper = styled.div`
         flex-wrap: wrap;
     }
 `
-const PrincipalTitle = styled.h1`
-    font-family: 'Poppins', sans-serif;
-    color: #292929;
-    font-size: 26px;
-    font-weight: bold;
-    margin-left: 16px;
-    margin-top: 40px;
-    @media(min-width:834px){
-        font-size: 37px;
-        margin-left: 32px;
-        margin-top: 50px;
-    }
-`
+
 const ArrowIcon = styled(ArrowForwardIosIcon)`
     color: #5755CC;
 `

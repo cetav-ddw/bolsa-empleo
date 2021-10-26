@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 function Footer (){
     return(
@@ -9,9 +10,8 @@ function Footer (){
                     <SecondaryLogo src="img/triada-logo.png"/>
                     <FooterOptions>
                         <ul>
-                            <li><a href ="#" aria-label="Pagina principal">Inicio</a></li>
-                            <li><a href ="#" aria-label="Ofertas de empleo disponibles">Ofertas Laborales</a></li>
-                            <li><a href ="#" aria-label="Publicar oferta de empleo ">Publicar Oferta Laboral</a></li>
+                            <li><Link to="/">Inicio</Link></li>
+                            <li><Link to="/ofertas">Ofertas Laborales</Link></li>
                         </ul>
                     </FooterOptions>
                     <FooterLogo>
@@ -50,6 +50,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     text-align:center;
+    padding: 2rem 0;
     @media(min-width:1040px){
         flex-direction: row;
         justify-content: space-between;
@@ -87,7 +88,10 @@ const FooterOptions = styled.div`
         margin-top : 24px;
     }
     @media(min-width:1040px){
-        width:25%;
+        width:18%;
+        ul{
+            margin-bottom : unset;
+        }
         li{
             border-bottom:none;
             text-align:left;

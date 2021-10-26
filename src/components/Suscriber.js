@@ -27,9 +27,9 @@ function Suscriber(){
                             <Label htmlFor="mce-EMAIL">{info.label}</Label>
                             <Flex>
                                 <Email type="email" defaultValue="" name="EMAIL" className="required email" id="mce-EMAIL" placeholder="E-mail" />
-                                <div className="clear">
+                                <SuscribeButton className="clear">
                                     <Button type="submit" value="Suscribirse" name="subscribe" id="mc-embedded-subscribe" className="button" />
-                                </div>
+                                </SuscribeButton>
                             </Flex>
                         </div>
                         <div id="mce-responses" className="clear">
@@ -67,13 +67,14 @@ const Label = styled.label`
 `
 
 const Email = styled.input`
-    width: 343px;
+    width: 100%;
     height: 54px;
     border: 2px solid #7C7C7C;
     border-radius: 8px;
     margin-top:10px;
     font-size: 1rem;
     color:#292929;
+    font-family: 'Open Sans', sans-serif;
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         padding-left: 10px;
     }
@@ -143,6 +144,10 @@ const Mailchimp = styled.div`
         display:flex;
         align-items: center;
     }
+`
+const SuscribeButton = styled.div`
+    display:flex;
+    justify-content: flex-end;
 `
 const Flex = styled.div`
     @media(min-width:834px){
