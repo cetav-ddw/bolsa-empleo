@@ -27,29 +27,27 @@ const Background = styled.div`
 const Wrapper = styled.div`
     width: 91.5%;
     margin: 0 auto;
-    border: 2px solid tomato;
     @media(min-width:834px){
         width:92%;
-        border: 2px solid green;
     }
     @media(min-width:1440px){
         width:72%;
-        border: 2px solid blue;
     }
 
 `
 
 const Welcome = styled.p`
-    color:#292929;
+    color:#5E5E5E;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: 1.375rem;
     font-weight: 500;
     @media(min-width:834px){
-        font-size: 1.625rem;
+        font-size: 2.313rem;
+        font-weight: 700;
     }
     @media(min-width:1440px){
-        font-size: 2.313rem;
+        font-size: 4.125rem;
     }
 `
 const Image = styled.img`

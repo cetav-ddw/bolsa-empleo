@@ -20,7 +20,10 @@ function Explorebutton() {
 export default Explorebutton
 
 const WrapperPost = styled.div`
-    margin: 32px 0 56px 0;
+    margin: 16px 0 32px 0;
+    @media (min-width: 1440px) {
+        margin: 0;
+    }
 `
 
 const ExploreWrapper = styled.div`
@@ -31,8 +34,8 @@ const ExploreWrapper = styled.div`
         width: 770px;
     }
     @media (min-width: 1440px) {
-        justify-content: right;
-        width: 1040px;
+        //display: flex;
+        display: contents;
     }
 `
 

@@ -75,7 +75,10 @@ const FooterOptions = styled.div`
         border-bottom: 1px solid #ECECEC;
         padding: 16px 0px;
         a{
-            color:white;
+            color:#fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
         }
     }
 
@@ -103,7 +106,11 @@ const FooterOptions = styled.div`
 `
 const FooterLogo = styled.div`
     p{
-        color:white;
+        color:#fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+
     }
     img{
         margin-bottom : 24px;

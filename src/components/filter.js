@@ -6,7 +6,6 @@ export default function Filter(){
     const [context,setContext] = useContext(FilterContext);
     return(
         <Container>
-            <h1>Ofertas de Empleo</h1>
             <select value={context} onChange={(e) => setContext( e.target.value )}>
                 <option value="Filtrar por tecnico">Todos los técnicos</option>
                 <option value="Diseño y desarrollo web">Diseño Web</option>
@@ -19,15 +18,8 @@ export default function Filter(){
 }
 
 const Container = styled.div`
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    h1{
-        margin-bottom:2rem;
-        font-family: 'Poppins', sans-serif;
-        color: #292929;
-        font-size: 26px;
-        font-weight: bold;
-    }
     select{
         color:#292929;
         background-color: transparent;
@@ -48,13 +40,11 @@ const Container = styled.div`
             width:24%
         }
         @media(min-width:1040px){
-            width:15%
+            width:18%
         }
     }
     @media(min-width:834px){
-        margin-top:48px;
-        width: 93%;
-        display:flex;
-        justify-content:space-between;
+        width: 80%;
+        display: contents;
     }
 `

@@ -6,7 +6,7 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import WorkIcon from '@mui/icons-material/Work';
 
-function Secondnavbar() {
+function Navbar() {
     const [menuStatus, setMenuStatus] = useState(false);
 
     return (
@@ -168,5 +168,4 @@ const CustomClose = styled(ClearRoundedIcon)`
     color: white;
     font-size: large;
 `
-
-export default Secondnavbar
+export default Navbar
