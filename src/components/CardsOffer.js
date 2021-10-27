@@ -11,7 +11,7 @@ function CardsOffer() {
     const [context] = useContext(FilterContext);
 
     useEffect(() => {
-        fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=${airtable}`)
+        fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`)
             .then((response) => response.json())
             .then((res) => {
                 if(context === 'Filtrar por tecnico'){
