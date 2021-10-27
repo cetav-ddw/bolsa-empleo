@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import {Hero}  from "../components/Hero";
 import Cards from "./CardsHome";
 import Suscriber from "../components/Suscriber";
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import Banner from "../components/Banner";
 import MyProvider from "../aplication/provider";
 

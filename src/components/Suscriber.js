@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { Wrapper } from "./Hero";
 
 
-
-
 function Suscriber(){
     const info ={
         name: "Suscribete a nuestro newsletter",
