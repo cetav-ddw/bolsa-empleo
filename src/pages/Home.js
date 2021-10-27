@@ -6,6 +6,7 @@ import Suscriber from "../components/Suscriber";
 import Footer from "../components/footer";
 import Banner from "../components/Banner";
 import MyProvider from "../aplication/provider";
+import Jobsview from "../components/Jobsview";
 
 function Home() {
     return (
@@ -18,6 +19,7 @@ function Home() {
             <Suscriber />
             <Banner />
             <Footer />
+            <Jobsview/>
         </div>
     )}
 

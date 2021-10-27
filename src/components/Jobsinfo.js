@@ -33,22 +33,24 @@ function Jobsinfo({title, salarie, company, career, logo, description, email, jo
                     <img src={jobImg} atl={alt} ></img>
                     <p>La oferta laboral estará disponible 30 días.</p>
                 </JobImgInfo>
-                
             </JobDetails>
         </Wrap>
-        
     )
 }
 
 export default Jobsinfo
 
-
 const Wrap = styled.div`
-    color:black;    
-    @media (min-width: 834px) {
-        width: 100%;
-    }
+    color: black;
 
+    @media (min-width: 834px) {
+        width: 770px;
+        margin: 0 auto;
+    }
+    @media (min-width: 1440px) {
+        width: 100%;
+        margin: auto;
+    }
 `
 
 const JobHeader = styled.div`
@@ -69,7 +71,7 @@ const JobHeaderInfo = styled.div`
         width: 770px;
     }
     @media (min-width: 1440px) {
-        width: 1240px;
+        width: 1040px;
     }
 `
 const ItemImg = styled.div` 
@@ -142,7 +144,7 @@ const JobDetails = styled.div`
     }
 
     @media (min-width: 1440px) {
-        width: 1240px;
+        width: 1040px;
     }
 `
 

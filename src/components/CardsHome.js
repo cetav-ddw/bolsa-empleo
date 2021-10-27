@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {WrapperTags, TogleTags} from './Tags';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Explorebutton from './Explorebutton'
+import { Link } from 'react-router-dom';
 
 function Cards() {
     const [post, setPost] = useState([])
@@ -50,7 +51,7 @@ function Cards() {
                                         ))}
                                     </WrapperTags>
                                     <ButtonCard>
-                                        <Link>
+                                        <Link to="/jobsview">
                                             Más Información
                                             <ArrowIcon />
                                         </Link>
@@ -279,23 +280,24 @@ const ButtonCard = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
-`
 
-const Link = styled.a`
-    display: none;
-    @media(min-width:1440px){
-        align-items: center;
-        color: #5755CC;
-        display: flex;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        font-weight: bolder;
-        justify-content: flex-end;
-        text-decoration: none;
-    }
-    :hover{
-        cursor: pointer;
-        text-decoration: underline;
+    a {
+        display: none;
+
+        @media(min-width:1440px){
+            align-items: center;
+            color: #5755CC;
+            display: flex;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bolder;
+            justify-content: flex-end;
+            text-decoration: none;
+        }
+        :hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
 `
 

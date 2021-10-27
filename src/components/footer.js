@@ -51,7 +51,9 @@ const Content = styled.div`
     flex-direction: column;
     text-align:center;
     padding: 2rem 0;
-    @media(min-width:1040px){
+    @media(min-width:1440px){
+        width: 1040px;
+        margin: 0 auto;
         flex-direction: row;
         justify-content: space-between;
     }
