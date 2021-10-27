@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from '../components/Navbar'
-import CardsOffer from "./CardsOffer";
+import CardsOffer from "../components/CardsOffer";
 import Footer from "../components/Footer";
 import MyProvider from "../aplication/provider"
 import Suscriber from "../components/Suscriber";

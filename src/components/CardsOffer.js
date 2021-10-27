@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { FilterContext } from '../filterContext';
 import {WrapperTags, TogleTags} from './Tags';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import Explorebutton from './Explorebutton'
 import Filter from './Filter';
 
 function CardsOffer() {
+    const airtable = process.env.REACT_APP_API
     const [post, setPost] = useState([])
     const [context] = useContext(FilterContext);
 
     useEffect(() => {
-        fetch('https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv')
+        fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=${airtable}`)
             .then((response) => response.json())
             .then((res) => {
                 if(context === 'Filtrar por tecnico'){

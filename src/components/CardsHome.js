@@ -1,28 +1,16 @@
-import React, { useState, useEffect,useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import { FilterContext } from '../filterContext';
 import {WrapperTags, TogleTags} from './Tags';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Explorebutton from './Explorebutton'
 
 function Cards() {
     const [post, setPost] = useState([])
-    const [context] = useContext(FilterContext);
-
     useEffect(() => {
         fetch('https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv')
             .then((response) => response.json())
             .then((res) => {
-                if(context === 'Filtrar por tecnico'){
-                    setPost(res.records);
-                }else{
-                    const filteredOptions = res.records.filter((card) => {
-                        return card.fields.career[0].includes(context)
-                    })
-                    if(filteredOptions){
-                        setPost(filteredOptions);
-                    }
-                }
+                setPost(res.records);
             })
             .catch(err => {
                 console.log(err)
@@ -42,7 +30,6 @@ function Cards() {
             <Container>
                 {
                     post.map(currElement => (
-                       
                         <Wrapper key = {currElement.createdTime}>
                             <CardContent>
                                 <Jobs src={currElement.fields.logo[0].url}/>
@@ -141,8 +128,8 @@ const InfoTitle = styled.div`
 
 const TitleButton = styled.div`
     display: none;
-   @media(min-width: 1440px){
-        display: flex;
+    @media(min-width: 1440px){
+            display: flex;
     }
 `
 
@@ -150,7 +137,7 @@ const Container = styled.div`
     height: 655px;
     overflow: hidden;
     @media(min-width: 834px){
-        height: 635px;
+        height: 634px;
     }
     @media(min-width:1440px){
         display: flex;

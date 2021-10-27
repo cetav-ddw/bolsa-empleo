@@ -7,13 +7,19 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import WorkIcon from '@mui/icons-material/Work';
 
 function Navbar() {
+    const info ={
+        cetav_link:"https://www.parquelalibertad.org/cetav/home",
+        logo:"img/principal-logo.png",
+        home:"Inicio",
+        offers:"Ofertas de Empleo"
+    };
     const [menuStatus, setMenuStatus] = useState(false);
 
     return (
         <Container>
             <WrapperHeader>
                 <WrapperLogo>
-                    <img src="/img/principal-logo.png" alt="Logo Cetav bolsa de empleo"></img>
+                    <a href={info.cetav_link} target="_blank"><img src={info.logo} alt="Logo Cetav bolsa de empleo"></img></a>             
                 </WrapperLogo>
                 <HeaderNav>
                     <Link to="/">Inicio</Link>
@@ -29,16 +35,16 @@ function Navbar() {
                     <AnchorsWrapper>
                         <Link to="/">
                             <HomeRoundedIcon/>
-                            Inicio
+                            {info.home}
                         </Link>
                         <Link to="/ofertas">
                             <WorkIcon/>
-                            Ofertas Laborales
+                            {info.offers}
                         </Link>
                     </AnchorsWrapper>
                 </Menuwrapper>
             </MenuNav>
-          </Container>  
+        </Container>  
     )
 }
 

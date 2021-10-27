@@ -10,41 +10,42 @@ function Suscriber(){
         name: "Suscribete a nuestro newsletter",
         label:"Ingrese su Email:",
         image:"img/subscriber.svg",
-        url:"https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58"
+        url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
+        paragraph:"We have so many ideas for new features that can help our partners manage their units even more efficiently. We promise you that we wont mail bomb you, just once in a month."
+        
     }
 
     return(
-        <Wrapper>
-            <Mailchimp id="mc_embed_signup">
-                <Container>
-                    <Image src={info.image} alt="Subscribir" />
-                </Container>
-                <Form action={info.url} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-                    <div id="mc_embed_signup_scroll">
-                        <Title>{info.name}</Title>
-                        <Paragraph>We have so many ideas for new features that can help our partners manage their units even more efficiently. We promise you that we wont mail bomb you, just once in a month.</Paragraph>
-                        <div className="mc-field-group">
-                            <Label htmlFor="mce-EMAIL">{info.label}</Label>
-                            <Flex>
-                                <Email type="email" defaultValue="" name="EMAIL" className="required email" id="mce-EMAIL" placeholder="E-mail" />
-                                <SuscribeButton className="clear">
-                                    <Button type="submit" value="Suscribirse" name="subscribe" id="mc-embedded-subscribe" className="button" />
-                                </SuscribeButton>
-                            </Flex>
+            <Wrapper>
+                <Mailchimp id="mc_embed_signup">
+                    <Container>
+                        <Image src={info.image} alt="Subscribir" />
+                    </Container>
+                    <Form action={info.url} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                        <div id="mc_embed_signup_scroll">
+                            <Title>{info.name}</Title>
+                            <Paragraph>{info.paragraph}</Paragraph>
+                            <div className="mc-field-group">
+                                <Label htmlFor="mce-EMAIL">{info.label}</Label>
+                                <Flex>
+                                    <Email type="email" defaultValue="" name="EMAIL" className="required email" id="mce-EMAIL" placeholder="E-mail" />
+                                    <SuscribeButton className="clear">
+                                        <Button type="submit" value="Suscribirse" name="subscribe" id="mc-embedded-subscribe" className="button" />
+                                    </SuscribeButton>
+                                </Flex>
+                            </div>
+                            <div id="mce-responses" className="clear">
+                                <Error className="response" id="mce-error-response"></Error>
+                                <Success className="response" id="mce-success-response"></Success>
+                            </div>
+                            {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
+                            <Aria aria-hidden="true">
+                                <input type="text" name="b_89a21ad8fc7a9ac4952f237b8_3db6decf58" tabIndex={-1} defaultValue="" />
+                            </Aria>
                         </div>
-                        <div id="mce-responses" className="clear">
-                            <Error className="response" id="mce-error-response"></Error>
-                            <Success className="response" id="mce-success-response"></Success>
-                        </div>
-                        {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
-                        <Aria aria-hidden="true">
-                            <input type="text" name="b_89a21ad8fc7a9ac4952f237b8_3db6decf58" tabIndex={-1} defaultValue="" />
-                        </Aria>
-                    </div>
-                </Form>
-            </Mailchimp>
+                    </Form>
+                </Mailchimp>
         </Wrapper>
-
     )
 
 }
@@ -79,10 +80,14 @@ const Email = styled.input`
         padding-left: 10px;
     }
     @media(min-width:834px){
-        width: 100%;
+        width: 60%;
         margin-top:0;
     }
+    @media(min-width:1440px){
+        width: 70%;
+    }
 `
+
 
 const Paragraph = styled.p`
     font-family: 'Open Sans', sans-serif;
@@ -125,7 +130,7 @@ const Container = styled.div`
     width: 50%;
 
 `
-const Form = styled.div`
+const Form = styled.form`
     @media(min-width:834px){
         width: 50%;
     }
