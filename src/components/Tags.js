@@ -2,13 +2,23 @@ import React from "react";
 import styled from 'styled-components'
 
 const Tags = (props) => {
-    return <WrapperTags><TogleTags>{props.name}</TogleTags><TogleTags>{props.name}</TogleTags></WrapperTags>
+    return (
+        <WrapperTags>
+            <TogleTags>{props.name}</TogleTags>
+        </WrapperTags>
+    )
 }
 
 const WrapperTags = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    width: 100%;
 
+    @media(min-width:1440px){
+        margin-bottom: 16px;
+    }
 `
 const TogleTags = styled.div`
     font-family: 'Open Sans', sans-serif;
@@ -20,11 +30,12 @@ const TogleTags = styled.div`
     font-size: 0.5rem;
     height: 28px;
     justify-content: center;
-    margin-left: 4px;
     text-transform: uppercase;
     width: 94px;
     text-align: center;
     font-weight: 700;
+    margin-bottom: 8px;
+    margin-right: 3px;
 `
 
 export {WrapperTags, TogleTags, Tags}
