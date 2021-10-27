@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from '../components/Navbar'
 import {Hero}  from "../components/Hero";
-import Cards from "./CardsHome";
+import Cards from "../components/CardsHome";
 import Suscriber from "../components/Suscriber";
-import Footer from "./Footer";
+import Footer from "../components/footer";
 import Banner from "../components/Banner";
 import MyProvider from "../aplication/provider";
 
