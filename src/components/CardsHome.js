@@ -4,14 +4,12 @@ import { WrapperTags, TogleTags } from "./Tags";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Explorebutton from "./Explorebutton";
 import { Link } from "react-router-dom";
-//import {useParams} from "reac-router"
-//import Jobsview from "./Jobsview";
-import IdContext from "../IdContext"
+import IdContext from "../IdContext";
 
 
 function Cards() {
   const [post, setPost] = useState([]);
-  const [contextCards, SetContextCards] = useContext(IdContext);
+  const [, SetContextCards] = useContext(IdContext);
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv"
@@ -44,7 +42,7 @@ function Cards() {
       </WrapperTitle>
       <Container>
         {post.map((currElement) => (
-          <Wrapper key={currElement.id}>
+          <Wrapper key={currElement.createdTime}>
             <CardContent>
               <Jobs src={currElement.fields.logo[0].url} />
               <Content>

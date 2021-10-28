@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import Jobsinfo from "./Jobsinfo";
-import {React, useContext} from "react";
+//import Jobsinfo from "./Jobsinfo";
+import React, { useState, useContext } from "react";
 import IdContext from "../IdContext"
 
-function Jobsview(props) {
-  /* let currentCard = props.id
-    console.log(currentCard) */
+function Jobsview() {
+  const [actualCard, setActualCard] = useState([]);
   const [contextCards] = useContext(IdContext);
   console.log('este es el contexto', contextCards)
   fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${contextCards}`, {
@@ -13,33 +12,207 @@ function Jobsview(props) {
       Authorization: "Bearer keyVGKRZEPpRENeUv",
     },
   })
-    .then((response) => response.json())
-    .then((res) => {
-      console.log(res);
-      return (
-        <Container>
-          <Jobsinfo
-            
-            title="Front-end Developer"
-            salarie="$1200 / month"
-            company="Accenture"
-            career="Desarollo web"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra efficitur sem id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra efficitur sem id."
-            email="erudito@gmail.com"
-            jobImg="/img/img-job.png"
-            alt="Kendoll"
-          />
-        </Container>
-      );
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  .then((response) => response.json())
+  .then((res) => {
+    setActualCard(
+      res.fields
+    )
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  return (
+    <Container>
+      <Wrap>
+        <JobHeader>
+          <JobHeaderInfo>
+            <ItemImg>
+              <img src={actualCard.logo} alt="Logo de la empresa"></img>
+            </ItemImg>
+            <Itemtext>
+              <h6>{actualCard.title}</h6>
+              <p>{actualCard.salarie}</p>
+              <p>{actualCard.company}</p>
+              <p>{actualCard.career}</p>
+            </Itemtext>
+          </JobHeaderInfo>
+        </JobHeader>
+        <JobDetails>
+          <JobBodyInfo>
+            <Description>
+              <h3>Descripción del Trabajo</h3>
+              <p>{actualCard.description}</p>
+            </Description>
+            <h3>Técnico</h3>
+            <h3>Nivel de Conocimientos</h3>
+            <h3>Modalidad de Trabajo</h3>
+            <h3>Contáctenos</h3>
+            <p>{actualCard.email}</p>
+          </JobBodyInfo>
+          <JobImgInfo>
+            <img src={actualCard.jobImg} alt="Imagen del trabajo"></img>
+            <p>La oferta laboral estará disponible 30 días.</p>
+          </JobImgInfo>
+        </JobDetails>
+      </Wrap>
+    </Container>
+  );
 }
+
 
 export default Jobsview;
 
+
 const Container = styled.div`
   height: 100%;
-  //border: 2px solid #292929;
+`;
+
+const Wrap = styled.div`
+  color: black;
+
+  @media (min-width: 834px) {
+    width: 770px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1440px) {
+    width: 100%;
+    margin: auto;
+  }
+`;
+
+const JobHeader = styled.div`
+  color: black;
+  border-radius: 0 0 5px 5px;
+  border: 2px solid #292929;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+const JobHeaderInfo = styled.div`
+  align-items: flex-start;
+  display: flex;
+  margin: 24px auto;
+  width: 343px;
+  color: black;
+  @media (min-width: 834px) {
+    width: 770px;
+  }
+  @media (min-width: 1440px) {
+    width: 1040px;
+  }
+`;
+const ItemImg = styled.div`
+  img {
+    border-radius: 5px;
+    width: 100px;
+  }
+`;
+
+const Itemtext = styled.div`
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 211px;
+  margin-left: 32px;
+
+  h6 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 8px;
+    margin-top: 0;
+    color: #081f32;
+    font-size: 14px;
+  }
+  p:nth-child(3) {
+    font-weight: bolder;
+  }
+  p:nth-child(4) {
+    font-weight: bold;
+    color: #375bda;
+    font-size: 12px;
+  }
+
+  @media (min-width: 834px) {
+    margin-left: 56px;
+  }
+  @media (min-width: 1440px) {
+    margin-left: 56px;
+  }
+`;
+
+const JobDetails = styled.div`
+  color: black;
+  margin: 32px auto;
+  text-align: left;
+  width: 343px;
+
+  h3 {
+    font-size: 20px;
+    margin: 32px 0 8px 0;
+  }
+  h3:nth-child(1) {
+    margin: 0 0 8px 0;
+  }
+  p {
+    color: #5e5e5e;
+    font-size: 18px;
+  }
+
+  @media (min-width: 834px) {
+    width: 770px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1040px;
+  }
+`;
+
+const Description = styled.div`
+  width: 100%;
+  color: black;
+  p {
+    width: 100%;
+    color: #5e5e5e;
+    font-size: 18px;
+  }
+`;
+
+const JobBodyInfo = styled.div`
+  width: 343px;
+  color: black;
+  @media (min-width: 834px) {
+    width: 60%;
+    margin-right: 16px;
+  }
+`;
+
+const JobImgInfo = styled.div`
+  width: 100%;
+  margin-top: 48px;
+  border-radius: 5px;
+
+  img {
+    width: 100%;
+  }
+  p {
+    color: #5e5e5e;
+    font-size: 12px;
+    font-weight: bolder;
+  }
+
+  @media (min-width: 834px) {
+    margin-top: 0;
+    width: 60%;
+  }
+
+  @media (min-width: 1440px) {
+    width: 50%;
+  }
 `;

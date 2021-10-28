@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Filter from "./Filter";
 
 function CardsOffer() {
-  const airtable = process.env.REACT_APP_API;
+  /* //const airtable = process.env.REACT_APP_API; */
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
 
@@ -43,7 +43,7 @@ function CardsOffer() {
       </WrapperTitle>
       <Container>
         {post.map((currElement) => (
-          <Wrapper key={currElement.id}>
+          <Wrapper key={currElement.createdTime}>
             <CardContent>
               <Jobs src={currElement.fields.logo[0].url} />
               <Content>

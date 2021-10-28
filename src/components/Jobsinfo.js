@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import styled from "styled-components";
 
 function Jobsinfo({
@@ -199,3 +199,4 @@ const JobImgInfo = styled.div`
     width: 50%;
   }
 `;
+ */
