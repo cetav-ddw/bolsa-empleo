@@ -1,7 +1,6 @@
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home"
-import Ofertas from "./pages/Ofertas"
+import Home from "./pages/Home";
+import Ofertas from "./pages/Ofertas";
 import ErrorPage from "./pages/Error404";
 import JobsPage from "./pages/Jobspage";
 
@@ -11,22 +10,21 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home/>
-          </Route> 
+            <Home />
+          </Route>
           <Route exact path="/ofertas">
-            <Ofertas/>
+            <Ofertas />
           </Route>
           <Route exact path="/jobsview">
-            <JobsPage/>
+            <JobsPage />
           </Route>
-          <Route exact path="*">
-            <ErrorPage/>
+          <Route path="*">
+            <ErrorPage />
           </Route>
-        </Switch>             
+        </Switch>
       </Router>
     </div>
-  )
+  );
 }
-
 
 export default App;

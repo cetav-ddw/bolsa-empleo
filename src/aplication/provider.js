@@ -3,8 +3,6 @@ import { FilterContext } from "../filterContext";
 
 const filterOptions = 'Filtrar por tecnico'
 
-
-
 const MyProvider = (props) =>{
     const [context,setContext] = useState(filterOptions)
     return(
