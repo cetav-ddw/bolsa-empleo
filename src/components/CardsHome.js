@@ -60,7 +60,7 @@ function Cards() {
                   ))}
                 </WrapperTags>
                 <ButtonCard>
-                  <Link to={`/jobview/${currElement.id}`}>
+                  <Link to={`/jobsview/${currElement.id}`}>
                       Más Información
                     <ArrowIcon />
                   </Link>

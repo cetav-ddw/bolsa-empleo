@@ -19,9 +19,7 @@ function App() {
           <Route exact path="/jobsview">
             <JobsPage />
           </Route>
-          <Route exact path="/:id">
-            <Jobsview/>
-          </Route>
+          <Route exact path="/:id" children={<Jobsview/>}/>
           {/* <Route path="*">
             <ErrorPage />
           </Route> */}

@@ -4,7 +4,8 @@ import { useParams } from "react-router";
 
 function Jobsview() {
   
-  let id = useParams();
+  let {id} = useParams();
+  alert(id);
   const [infoCards, setInfoCards] = useState([]);
 
   useEffect(() => {
