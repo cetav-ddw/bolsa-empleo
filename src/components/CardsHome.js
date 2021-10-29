@@ -10,15 +10,19 @@ function Cards() {
   const [post, setPost] = useState([]);
   useEffect(() => {
     fetch(
-      "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv"
+      "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?maxRecords=3&sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
+        headers: {
+          Authorization: "Bearer keyVGKRZEPpRENeUv",
+        },
+      }
     )
-      .then((response) => response.json())
-      .then((res) => {
-        setPost(res.records);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((response) => response.json())
+    .then((res) => {
+      setPost(res.records);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   });
   return (
     <CardSection>
@@ -40,34 +44,36 @@ function Cards() {
       </WrapperTitle>
       <Container>
         {post.map((currElement) => (
-          <Wrapper key={currElement.createdTime.id}>
-            <CardContent>
-              <Jobs src={currElement.fields.logo[0].url} />
-              <Content>
-                <Title>{currElement.fields.career.join(", ")}</Title>
-                <ContentCompany>
-                  <CompanyName>{currElement.fields.name_company}</CompanyName>
-                </ContentCompany>
-                <ContainerText>
-                  <ContentType>{currElement.fields.name_job}</ContentType>
-                </ContainerText>
-                <WrapperTags>
-                  {currElement.fields.type_job.map((currentTypeJob) => (
-                    <TogleTags>{currentTypeJob}</TogleTags>
-                  ))}
-                  {currElement.fields.job_level.map((currentTypeJobLevel) => (
-                    <TogleTags>{currentTypeJobLevel}</TogleTags>
-                  ))}
-                </WrapperTags>
-                <ButtonCard>
-                  <Link to={`/jobsview/${currElement.id}`}>
-                      Más Información
-                    <ArrowIcon />
-                  </Link>
-                </ButtonCard>
-              </Content>
-            </CardContent>
-          </Wrapper>
+          <Link to={`/jobsview/${currElement.id}`}>
+            <Wrapper key={currElement.createdTime.id}>
+              <CardContent>
+                <Jobs src={currElement.fields.logo[0].url} />
+                <Content>
+                  <Title>{currElement.fields.career.join(", ")}</Title>
+                  <ContentCompany>
+                    <CompanyName>{currElement.fields.name_company}</CompanyName>
+                  </ContentCompany>
+                  <ContainerText>
+                    <ContentType>{currElement.fields.name_job}</ContentType>
+                  </ContainerText>
+                  <WrapperTags>
+                    {currElement.fields.type_job.map((currentTypeJob) => (
+                      <TogleTags>{currentTypeJob}</TogleTags>
+                    ))}
+                    {currElement.fields.job_level.map((currentTypeJobLevel) => (
+                      <TogleTags>{currentTypeJobLevel}</TogleTags>
+                    ))}
+                  </WrapperTags>
+                  <ButtonCard>
+                    <Link to={`/jobsview/${currElement.id}`}>
+                        Más Información
+                      <ArrowIcon />
+                    </Link>
+                  </ButtonCard>
+                </Content>
+              </CardContent>
+            </Wrapper>
+          </Link>
         ))}
       </Container>
       <CardsButton>
@@ -144,15 +150,10 @@ const TitleButton = styled.div`
 `;
 
 const Container = styled.div`
-  height: 655px;
-  overflow: hidden;
-  @media (min-width: 834px) {
-    height: 634px;
-  }
   @media (min-width: 1440px) {
     display: flex;
     flex-wrap: wrap;
-    height: 480px;
+    justify-content: space-between;
     margin: 0 auto;
     width: 1040px;
   }

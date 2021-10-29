@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Ofertas from "./pages/Ofertas";
-//import ErrorPage from "./pages/Error404";
+import ErrorPage from "./pages/Error404";
 import JobsPage from "./pages/Jobspage";
-import Jobsview from "./components/Jobsview"
 
 function App() {
   return (
@@ -16,13 +15,11 @@ function App() {
           <Route exact path="/ofertas">
             <Ofertas />
           </Route>
-          <Route exact path="/jobsview">
-            <JobsPage />
-          </Route>
-          <Route exact path="/jobsview/:id" children={<Jobsview/>}/>
-          {/* <Route path="*">
+          <Route exact path="/jobsview/:id" children={<JobsPage/>}/>
+          <Route exact path="/ofertas/:id" children={<JobsPage/>}/>
+          <Route path="*">
             <ErrorPage />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
     </div>

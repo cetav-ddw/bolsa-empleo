@@ -7,7 +7,7 @@ function Footer() {
     <Backrogund>
       <Container>
         <Content>
-          <SecondaryLogo src="img/triada-logo.png" />
+          <SecondaryLogo src="../img/triada-logo.png" />
           <FooterOptions>
             <ul>
               <li>
@@ -20,7 +20,7 @@ function Footer() {
           </FooterOptions>
           <FooterLogo>
             <a href="https://www.facebook.com/cetavcr" rel="noreferrer" target="_blank">
-              <img src="img/facebook-logo.svg" alt="Facebook Logo"></img>
+              <img src="../img/facebook-logo.svg" alt="Facebook Logo"></img>
             </a>
             <p>© CETAV Bolsa de empleos | 2021</p>
           </FooterLogo>

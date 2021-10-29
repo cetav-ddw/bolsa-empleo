@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router";
+import { WrapperTags, TogleTags } from "./Tags";
 
 function Jobsview() {
   
@@ -48,14 +49,37 @@ function Jobsview() {
               <h3>Descripción del Trabajo</h3>
               <p>{infoCards.fields.description}</p>
             </Description>
-            <h3>Técnico</h3>
             <h3>Nivel de Conocimientos</h3>
+            <WrapperTags>
+              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                <TogleTags>{currentTypeJobLevel}</TogleTags>
+              ))}
+              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                <TogleTags>{currentTypeJobLevel}</TogleTags>
+              ))}
+              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                <TogleTags>{currentTypeJobLevel}</TogleTags>
+              ))}
+              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                <TogleTags>{currentTypeJobLevel}</TogleTags>
+              ))}
+              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                <TogleTags>{currentTypeJobLevel}</TogleTags>
+              ))}
+            </WrapperTags>
+            
             <h3>Modalidad de Trabajo</h3>
+            <WrapperTags>
+              {infoCards.fields.type_job.map((currentTypeJob) => (
+                  <TogleTags>{currentTypeJob}</TogleTags>
+                ))}
+            </WrapperTags>
+            
             <h3>Contáctenos</h3>
             <p>{infoCards.fields.email}</p>
           </JobBodyInfo>
           <JobImgInfo>
-            <img src={infoCards.fields.image_job} alt="Imagen del trabajo"></img>
+            <img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img>
             <p>La oferta laboral estará disponible 30 días.</p>
           </JobImgInfo>
         </JobDetails>

@@ -4,15 +4,19 @@ import { FilterContext } from "../filterContext";
 import { WrapperTags, TogleTags } from "./Tags";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Filter from "./Filter";
+import { Link } from "react-router-dom";
 
 function CardsOffer() {
-  /* //const airtable = process.env.REACT_APP_API; */
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
 
   useEffect(() => {
     fetch(
-      `https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv`
+      "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
+        headers: {
+          Authorization: "Bearer keyVGKRZEPpRENeUv",
+        },
+      }
     )
       .then((response) => response.json())
       .then((res) => {
@@ -43,34 +47,36 @@ function CardsOffer() {
       </WrapperTitle>
       <Container>
         {post.map((currElement) => (
-          <Wrapper key={currElement.createdTime}>
-            <CardContent>
-              <Jobs src={currElement.fields.logo[0].url} />
-              <Content>
-                <Title>{currElement.fields.career.join(", ")}</Title>
-                <ContentCompany>
-                  <CompanyName>{currElement.fields.name_company}</CompanyName>
-                </ContentCompany>
-                <ContainerText>
-                  <ContentType>{currElement.fields.name_job}</ContentType>
-                </ContainerText>
-                <WrapperTags>
-                  {currElement.fields.type_job.map((currentTypeJob) => (
-                    <TogleTags>{currentTypeJob}</TogleTags>
-                  ))}
-                  {currElement.fields.job_level.map((currentTypeJobLevel) => (
-                    <TogleTags>{currentTypeJobLevel}</TogleTags>
-                  ))}
-                </WrapperTags>
-                <ButtonCard>
-                  <Link pat>
-                    Más Información
-                    <ArrowIcon />
-                  </Link>
-                </ButtonCard>
-              </Content>
-            </CardContent>
-          </Wrapper>
+          <Link to={`/jobsview/${currElement.id}`}>
+            <Wrapper key={currElement.createdTime}>
+              <CardContent>
+                <Jobs src={currElement.fields.logo[0].url} />
+                <Content>
+                  <Title>{currElement.fields.career.join(", ")}</Title>
+                  <ContentCompany>
+                    <CompanyName>{currElement.fields.name_company}</CompanyName>
+                  </ContentCompany>
+                  <ContainerText>
+                    <ContentType>{currElement.fields.name_job}</ContentType>
+                  </ContainerText>
+                  <WrapperTags>
+                    {currElement.fields.type_job.map((currentTypeJob) => (
+                      <TogleTags>{currentTypeJob}</TogleTags>
+                    ))}
+                    {currElement.fields.job_level.map((currentTypeJobLevel) => (
+                      <TogleTags>{currentTypeJobLevel}</TogleTags>
+                    ))}
+                  </WrapperTags>
+                  <ButtonCard>
+                    <Link to={`/jobsview/${currElement.id}`}>
+                      Más Información
+                      <ArrowIcon />
+                    </Link>
+                  </ButtonCard>
+                </Content>
+              </CardContent>
+            </Wrapper>
+          </Link>
         ))}
       </Container>
     </CardSection>
@@ -269,23 +275,23 @@ const ButtonCard = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-`;
 
-const Link = styled.a`
-  display: none;
-  @media (min-width: 1440px) {
-    align-items: center;
-    color: #5755cc;
-    display: flex;
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: bolder;
-    justify-content: flex-end;
-    text-decoration: none;
-  }
-  :hover {
-    cursor: pointer;
-    text-decoration: underline;
+  a{
+    display: none;
+    @media (min-width: 1440px) {
+      align-items: center;
+      color: #5755cc;
+      display: flex;
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      font-weight: bolder;
+      justify-content: flex-end;
+      text-decoration: none;
+    }
+    :hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 `;
 

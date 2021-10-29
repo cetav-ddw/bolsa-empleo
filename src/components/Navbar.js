@@ -9,7 +9,7 @@ import WorkIcon from "@mui/icons-material/Work";
 function Navbar() {
   const info = {
     cetav_link: "https://www.parquelalibertad.org/cetav/home",
-    logo: "img/principal-logo.png",
+    logo: "../img/principal-logo.png",
     home: "Inicio",
     offers: "Ofertas de Empleo",
   };
@@ -19,7 +19,7 @@ function Navbar() {
     <Container>
       <WrapperHeader>
         <WrapperLogo>
-          <a href={info.cetav_link} target="_blank">
+          <a href={info.cetav_link} target="_blank" rel="noreferrer">
             <img src={info.logo} alt="Logo Cetav bolsa de empleo"></img>
           </a>
         </WrapperLogo>
