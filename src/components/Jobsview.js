@@ -5,8 +5,8 @@ import { useParams } from "react-router";
 function Jobsview() {
   
   let {id} = useParams();
-  alert(id);
-  const [infoCards, setInfoCards] = useState([]);
+  console.log(id);
+  const [infoCards, setInfoCards] = useState({});
 
   useEffect(() => {
     const obtenerDatos = async () => {
@@ -21,6 +21,10 @@ function Jobsview() {
     }
     obtenerDatos()
   }, [id])
+
+  if(!infoCards.id){
+    return null
+  }
     
   return (
     <Container>
