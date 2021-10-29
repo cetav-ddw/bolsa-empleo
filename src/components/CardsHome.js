@@ -1,15 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { WrapperTags, TogleTags } from "./Tags";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Explorebutton from "./Explorebutton";
 import { Link } from "react-router-dom";
-import IdContext from "../IdContext";
 
 
 function Cards() {
   const [post, setPost] = useState([]);
-  const [, SetContextCards] = useContext(IdContext);
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?api_key=keyVGKRZEPpRENeUv"
@@ -42,7 +40,7 @@ function Cards() {
       </WrapperTitle>
       <Container>
         {post.map((currElement) => (
-          <Wrapper key={currElement.createdTime}>
+          <Wrapper key={currElement.createdTime.id}>
             <CardContent>
               <Jobs src={currElement.fields.logo[0].url} />
               <Content>
@@ -62,10 +60,8 @@ function Cards() {
                   ))}
                 </WrapperTags>
                 <ButtonCard>
-                  <Link to="/jobsview">
-                    <Paragraph onClick={() => SetContextCards(currElement.id)}>
+                  <Link to={`/jobview/${currElement.id}`}>
                       Más Información
-                    </Paragraph>
                     <ArrowIcon />
                   </Link>
                 </ButtonCard>
@@ -80,7 +76,6 @@ function Cards() {
     </CardSection>
   );
 }
-const Paragraph = styled.p``;
 
 const CardSection = styled.div`
   margin: 0 auto;

@@ -1,39 +1,39 @@
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-//import Jobsinfo from "./Jobsinfo";
-import React, { useState, useContext } from "react";
-import IdContext from "../IdContext"
+import { useParams } from "react-router";
 
 function Jobsview() {
-  const [actualCard, setActualCard] = useState([]);
-  const [contextCards] = useContext(IdContext);
-  console.log('este es el contexto', contextCards)
-  fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${contextCards}`, {
-    headers: {
-      Authorization: "Bearer keyVGKRZEPpRENeUv",
-    },
-  })
-  .then((response) => response.json())
-  .then((res) => {
-    setActualCard(
-      res.fields
-    )
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  
+  let id = useParams();
+  const [infoCards, setInfoCards] = useState([]);
+
+  useEffect(() => {
+    const obtenerDatos = async () => {
+      const data = await fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${id}`, {
+        headers: {
+          Authorization: "Bearer keyVGKRZEPpRENeUv",
+        },
+      })
+      const cardhome = await data.json()
+      console.log(cardhome);
+      setInfoCards(cardhome);
+    }
+    obtenerDatos()
+  }, [id])
+    
   return (
     <Container>
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
             <ItemImg>
-              <img src={actualCard.logo} alt="Logo de la empresa"></img>
+              <img src={infoCards.fields.logo[0].url} alt="Logo de la empresa"></img>
             </ItemImg>
             <Itemtext>
-              <h6>{actualCard.title}</h6>
-              <p>{actualCard.salarie}</p>
-              <p>{actualCard.company}</p>
-              <p>{actualCard.career}</p>
+              <h6>{infoCards.fields.name_job}</h6>
+              <p>{infoCards.fields.salary}</p>
+              <p>{infoCards.fields.name_company}</p>
+              <p>{infoCards.fields.career}</p>
             </Itemtext>
           </JobHeaderInfo>
         </JobHeader>
@@ -41,16 +41,16 @@ function Jobsview() {
           <JobBodyInfo>
             <Description>
               <h3>Descripción del Trabajo</h3>
-              <p>{actualCard.description}</p>
+              <p>{infoCards.fields.description}</p>
             </Description>
             <h3>Técnico</h3>
             <h3>Nivel de Conocimientos</h3>
             <h3>Modalidad de Trabajo</h3>
             <h3>Contáctenos</h3>
-            <p>{actualCard.email}</p>
+            <p>{infoCards.fields.email}</p>
           </JobBodyInfo>
           <JobImgInfo>
-            <img src={actualCard.jobImg} alt="Imagen del trabajo"></img>
+            <img src={infoCards.fields.image_job} alt="Imagen del trabajo"></img>
             <p>La oferta laboral estará disponible 30 días.</p>
           </JobImgInfo>
         </JobDetails>
