@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
+  const [, setError] = useState(null);
 
   useEffect(() => {
     fetch(
@@ -18,22 +19,31 @@ function CardsOffer() {
         },
       }
     )
-      .then((response) => response.json())
-      .then((res) => {
-        if (context === "Filtrar por tecnico") {
-          setPost(res.records);
-        } else {
-          const filteredOptions = res.records.filter((card) => {
-            return card.fields.career[0].includes(context);
-          });
-          if (filteredOptions) {
-            setPost(filteredOptions);
-          }
+    .then((response) => {
+      console.log(response)
+      if(!response.ok){
+        throw Error("No se pudieron cargas la ofertas, intentelo más tarde o recargue la página")
+      }
+      return response.json();
+    })
+    .then((res) => {
+      console.log(res)
+      if (context === "Filtrar por tecnico") {
+        setPost(res.records);
+      } else {
+        const filteredOptions = res.records.filter((card) => {
+          return card.fields.career[0].includes(context);
+        });
+        if (filteredOptions) {
+          setPost(filteredOptions);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }
+      setError(null)
+    })
+    .catch((err) => {
+      console.log(err.message);
+      setError(err.message)
+    });
   });
   return (
     <CardSection>
@@ -44,13 +54,14 @@ function CardsOffer() {
           </PrincipalTitle>
           <Filter />
         </TitleContent>
-      </WrapperTitle>
+      </WrapperTitle>    
       <Container>
         {post.map((currElement) => (
           <Link to={`/jobsview/${currElement.id}`}>
             <Wrapper key={currElement.createdTime}>
               <CardContent>
-                <Jobs src={currElement.fields.logo[0].url} />
+                {currElement.fields.logo[0].url && <Jobs src={currElement.fields.logo[0].url} />    }
+                <div><p>No se pudieron cargas la ofertas, intentelo más tarde o recargue la página</p></div>
                 <Content>
                   <Title>{currElement.fields.career.join(", ")}</Title>
                   <ContentCompany>
@@ -138,7 +149,9 @@ const PrincipalTitle = styled.div`
 
 const Container = styled.div`
   @media (min-width: 1440px) {
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    gap: 16px;
     flex-wrap: wrap;
     margin: 0 auto;
     width: 1040px;
@@ -150,9 +163,9 @@ const Wrapper = styled.div`
   border: 2px solid #5e5e5e;
   display: flex;
   justify-content: space-between;
-  margin-top: 200px;
   margin: 32px auto;
   width: 343px;
+
   @media (min-width: 834px) {
     display: flex;
     width: 770px;
@@ -162,6 +175,7 @@ const Wrapper = styled.div`
     border-radius: 5px;
     border: 2px solid #5e5e5e;
     display: flex;
+    margin: 0;
     flex-direction: column;
     width: 333px;
   }
@@ -198,6 +212,7 @@ const Jobs = styled.img`
     border-radius: 5px;
     margin: 0;
     width: 100%;
+    height: 200px;
   }
 `;
 
