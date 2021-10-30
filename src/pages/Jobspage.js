@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Jobsview from "../components/Jobsview";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";

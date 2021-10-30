@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import Cards from "../components/CardsHome";
 import Suscriber from "../components/Suscriber";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Banner from "../components/Banner";
 
 function Home() {

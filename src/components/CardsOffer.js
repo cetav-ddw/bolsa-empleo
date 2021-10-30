@@ -6,6 +6,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
@@ -14,7 +16,8 @@ function CardsOffer() {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
         headers: {
-          Authorization: "Bearer keyVGKRZEPpRENeUv",
+          "Content-Type": "JSON",
+          Authorization: `Bearer ${baseURL}`,
         },
       }
     )

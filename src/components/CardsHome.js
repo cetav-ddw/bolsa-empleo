@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Explorebutton from "./Explorebutton";
 import { Link } from "react-router-dom";
 
+const baseURL = process.env.REACT_APP_API_URL;
 
 function Cards() {
   const [post, setPost] = useState([]);
@@ -12,7 +13,8 @@ function Cards() {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?maxRecords=3&sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
         headers: {
-          Authorization: "Bearer keyVGKRZEPpRENeUv",
+          "Content-Type": "JSON",
+          Authorization: `Bearer ${baseURL}`,
         },
       }
     )

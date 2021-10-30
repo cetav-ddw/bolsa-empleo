@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { WrapperTags, TogleTags } from "./Tags";
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 function Jobsview() {
   
   let {id} = useParams();
@@ -13,7 +15,8 @@ function Jobsview() {
     const obtenerDatos = async () => {
       const data = await fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${id}`, {
         headers: {
-          Authorization: "Bearer keyVGKRZEPpRENeUv",
+          "Content-Type": "JSON",
+          Authorization: `Bearer ${baseURL}`,
         },
       })
       const cardhome = await data.json()
