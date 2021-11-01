@@ -10,6 +10,7 @@ function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
   const [, setError] = useState(null);
+  
 
   useEffect(() => {
     fetch(
@@ -56,7 +57,7 @@ function CardsOffer() {
         </TitleContent>
       </WrapperTitle>    
       <Container>
-        {post.map((currElement) => (
+        {post ? null : post.map((currElement) => (
           <Link to={`/jobsview/${currElement.id}`}>
             <Wrapper key={currElement.createdTime}>
               <CardContent>
