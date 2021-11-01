@@ -106,7 +106,7 @@ const JobHeader = styled.div`
 `;
 
 const JobHeaderInfo = styled.div`
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   margin: 24px auto;
   width: 343px;
@@ -127,11 +127,9 @@ const ItemImg = styled.div`
       width: 150px;
     }
     @media (min-width: 1440px) {
-      width: 200px;
+      width: 175px;
     }
   }
-  
-  
 `;
 
 const Itemtext = styled.div`
