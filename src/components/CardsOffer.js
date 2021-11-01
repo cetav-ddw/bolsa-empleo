@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
-  const [, setError] = useState(null);
-  
 
   useEffect(() => {
     fetch(
@@ -20,31 +18,22 @@ function CardsOffer() {
         },
       }
     )
-    .then((response) => {
-      console.log(response)
-      if(!response.ok){
-        throw Error("No se pudieron cargas la ofertas, intentelo más tarde o recargue la página")
-      }
-      return response.json();
-    })
-    .then((res) => {
-      console.log(res)
-      if (context === "Filtrar por tecnico") {
-        setPost(res.records);
-      } else {
-        const filteredOptions = res.records.filter((card) => {
-          return card.fields.career[0].includes(context);
-        });
-        if (filteredOptions) {
-          setPost(filteredOptions);
+      .then((response) => response.json())
+      .then((res) => {
+        if (context === "Filtrar por tecnico") {
+          setPost(res.records);
+        } else {
+          const filteredOptions = res.records.filter((card) => {
+            return card.fields.career[0].includes(context);
+          });
+          if (filteredOptions) {
+            setPost(filteredOptions);
+          }
         }
-      }
-      setError(null)
-    })
-    .catch((err) => {
-      console.log(err.message);
-      setError(err.message)
-    });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
   return (
     <CardSection>
@@ -55,14 +44,13 @@ function CardsOffer() {
           </PrincipalTitle>
           <Filter />
         </TitleContent>
-      </WrapperTitle>    
+      </WrapperTitle>
       <Container>
-        {post ? null : post.map((currElement) => (
+        {post.map((currElement) => (
           <Link to={`/jobsview/${currElement.id}`}>
             <Wrapper key={currElement.createdTime}>
               <CardContent>
-                {currElement.fields.logo[0].url && <Jobs src={currElement.fields.logo[0].url} />    }
-                <div><p>No se pudieron cargas la ofertas, intentelo más tarde o recargue la página</p></div>
+                <Jobs src={currElement.fields.logo[0].url} />
                 <Content>
                   <Title>{currElement.fields.career.join(", ")}</Title>
                   <ContentCompany>
@@ -248,6 +236,7 @@ const Title = styled.div`
     font-size: 16px;
     font-weight: bolder;
     margin-top: 24px;
+    height: 50px;
   }
 `;
 

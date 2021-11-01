@@ -54,18 +54,6 @@ function Jobsview() {
               {infoCards.fields.job_level.map((currentTypeJobLevel) => (
                 <TogleTags>{currentTypeJobLevel}</TogleTags>
               ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
             </WrapperTags>
             
             <h3>Modalidad de Trabajo</h3>
@@ -134,7 +122,16 @@ const ItemImg = styled.div`
   img {
     border-radius: 5px;
     width: 100px;
+
+    @media (min-width: 834px) {
+      width: 150px;
+    }
+    @media (min-width: 1440px) {
+      width: 200px;
+    }
   }
+  
+  
 `;
 
 const Itemtext = styled.div`
@@ -149,12 +146,19 @@ const Itemtext = styled.div`
     font-size: 20px;
     margin-bottom: 4px;
     margin-top: 0;
+
+    @media (min-width: 1440px) {
+      font-size: 26px;
+    }
   }
   p {
     margin-bottom: 8px;
     margin-top: 0;
     color: #081f32;
     font-size: 14px;
+    @media (min-width: 1440px) {
+      font-size: 18px;
+    }
   }
   p:nth-child(3) {
     font-weight: bolder;
@@ -163,13 +167,18 @@ const Itemtext = styled.div`
     font-weight: bold;
     color: #375bda;
     font-size: 12px;
+    @media (min-width: 1440px) {
+      font-size: 16px;
+    }
   }
 
   @media (min-width: 834px) {
     margin-left: 56px;
+    width: 250px;
   }
   @media (min-width: 1440px) {
     margin-left: 56px;
+    width: 350px;
   }
 `;
 

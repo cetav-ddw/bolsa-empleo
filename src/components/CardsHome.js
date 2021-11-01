@@ -212,6 +212,7 @@ const Jobs = styled.img`
     border-radius: 5px;
     margin: 0;
     width: 100%;
+    height: 200px;
   }
 `;
 
@@ -246,6 +247,7 @@ const Title = styled.div`
     font-size: 16px;
     font-weight: bolder;
     margin-top: 24px;
+    height: 50px;
   }
 `;
 

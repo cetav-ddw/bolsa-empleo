@@ -16,6 +16,7 @@ const WrapperTags = styled.div`
   width: 100%;
   @media (min-width: 1440px) {
     margin-bottom: 16px;
+    height: 70px;
   }
 `;
 const TogleTags = styled.div`
@@ -31,7 +32,7 @@ const TogleTags = styled.div`
   text-transform: uppercase;
   width: 94px;
   text-align: center;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 8px;
   margin-right: 3px;
 `;
