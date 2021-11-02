@@ -29,6 +29,7 @@ function CardsOffer() {
     })
     .then((res) => {
       console.log(res)
+      console.log(post)
       if (context === "Filtrar por tecnico") {
         setPost(res.records);
       } else {
@@ -57,12 +58,12 @@ function CardsOffer() {
         </TitleContent>
       </WrapperTitle>    
       <Container>
-        {post ? null : post.map((currElement) => (
+        {post ? post.map((currElement) => (
           <Link to={`/jobsview/${currElement.id}`}>
             <Wrapper key={currElement.createdTime}>
               <CardContent>
-                {currElement.fields.logo[0].url && <Jobs src={currElement.fields.logo[0].url} />    }
-                <div><p>No se pudieron cargas la ofertas, intentelo más tarde o recargue la página</p></div>
+              {!currElement.fields.logo[0].url ? <Jobs src="../img/principal-logo.png"/> : <Jobs src={currElement.fields.logo[0].url}/>}  
+                <Jobs src={currElement.fields.logo[0].url}/>
                 <Content>
                   <Title>{currElement.fields.career.join(", ")}</Title>
                   <ContentCompany>
@@ -89,7 +90,7 @@ function CardsOffer() {
               </CardContent>
             </Wrapper>
           </Link>
-        ))}
+        )) : null}
       </Container>
     </CardSection>
   );
