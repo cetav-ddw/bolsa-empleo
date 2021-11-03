@@ -34,7 +34,6 @@ const ExploreWrapper = styled.div`
     width: 770px;
   }
   @media (min-width: 1440px) {
-    //display: flex;
     display: contents;
   }
 `;
@@ -58,7 +57,7 @@ const ExploreButton = styled.div`
   color: white;
   display: flex;
   justify-content: center;
-  padding: 18px 16px;
+  padding: 12px 16px;
   text-decoration: none;
   a {
     text-decoration: none;

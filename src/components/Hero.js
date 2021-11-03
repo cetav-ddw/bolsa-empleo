@@ -24,13 +24,13 @@ const Background = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 91.5%;
+  width: 343px;
   margin: 0 auto;
   @media (min-width: 834px) {
-    width: 92%;
+    width: 770px;
   }
   @media (min-width: 1440px) {
-    width: 72%;
+    width: 1040px;
   }
 `;
 

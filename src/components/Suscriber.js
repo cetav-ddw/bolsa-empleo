@@ -9,7 +9,7 @@ function Suscriber() {
     image: "img/subscriber.svg",
     url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
     paragraph:
-      "We have so many ideas for new features that can help our partners manage their units even more efficiently. We promise you that we wont mail bomb you, just once in a month.",
+      "Suscríbete a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
   };
 
   return (
@@ -114,7 +114,7 @@ const Email = styled.input`
 const Paragraph = styled.p`
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #5e5e5e;
   margin-top: 14px;
 `;
@@ -122,7 +122,7 @@ const Paragraph = styled.p`
 const Button = styled.input`
   background: #5755cc;
   border-radius: 5px;
-  padding: 8px 16px 8px 16px;
+  padding: 12px 16px;
   color: #fff;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
@@ -130,10 +130,17 @@ const Button = styled.input`
   border: none;
   margin-left: 188px;
   margin-top: 20px;
+
   @media (min-width: 834px) {
     margin-left: 0;
     margin-top: 0;
-    padding: 12px 16px 12px 16px;
+    padding: 12px 16px;
+  }
+
+  @media (min-width: 1440px) {
+    &:hover{
+      background-color: #4240AA;
+    }
   }
 `;
 const Error = styled.div`

@@ -33,8 +33,7 @@ function Cards() {
           </PrincipalTitle>
           <InfoTitle>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hendrerit
-              commodo posuere fusce sagittis
+              Explora las diferentes ofertas laborales disponibles para vos
             </p>
           </InfoTitle>
         </TitleContent>
@@ -124,10 +123,10 @@ const PrincipalTitle = styled.div`
     font-family: "Poppins", sans-serif;
     font-size: 26px;
     font-weight: bolder;
-  }
-  @media (min-width: 834px) {
-    font-size: 37px;
-    margin-top: 50px;
+    @media (min-width: 834px) {
+      font-size: 37px;
+      margin-top: 50px;
+    }
   }
 `;
 
@@ -136,6 +135,9 @@ const InfoTitle = styled.div`
     color: #5e5e5e;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
+    @media (min-width: 834px) {
+      font-size: 1.125rem;
+    }
   }
   @media (min-width: 834px) {
     width: 550px;
