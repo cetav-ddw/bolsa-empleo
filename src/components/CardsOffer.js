@@ -40,7 +40,7 @@ function CardsOffer() {
       <WrapperTitle>
         <TitleContent>
           <PrincipalTitle>
-            <h2>Ofertas de empleo</h2>
+            <h2>Ofertas Laborales</h2>
           </PrincipalTitle>
           <Filter />
         </TitleContent>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function Hero() {
   const info = {
-    name: "Bienvenidos",
+    name: "¡Hola Comunidad Cetaviana!",
     hero: "img/hero.svg",
   };
   return (
@@ -43,6 +43,7 @@ const Welcome = styled.p`
   @media (min-width: 834px) {
     font-size: 2.313rem;
     font-weight: 700;
+    width: 200px;
   }
   @media (min-width: 1440px) {
     font-size: 4.125rem;
