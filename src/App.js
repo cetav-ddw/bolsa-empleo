@@ -20,6 +20,7 @@ function App() {
           <Route path="*">
             <ErrorPage />
           </Route>
+          
         </Switch>
       </Router>
     </div>
