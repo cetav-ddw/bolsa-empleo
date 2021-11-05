@@ -52,18 +52,6 @@ function Jobsview() {
               {infoCards.fields.job_level.map((currentTypeJobLevel) => (
                 <TogleTags>{currentTypeJobLevel}</TogleTags>
               ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
             </WrapperTags>
             
             <h3>Modalidad de Trabajo</h3>
