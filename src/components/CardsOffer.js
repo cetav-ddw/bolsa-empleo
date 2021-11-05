@@ -59,7 +59,7 @@ function CardsOffer() {
             <Link to={`/jobsview/${currElement.id}`}>
               <Wrapper key={currElement.createdTime}>
                 <CardContent>
-                  {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/hero.svg"/>}
+                  {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/building.svg"/>}
                   <Content>
                     <Title>{currElement.fields.career.join(", ")}</Title>
                     <ContentCompany>
@@ -235,8 +235,8 @@ const Jobs = styled.img`
   @media (min-width: 1440px) {
     border-radius: 5px;
     margin: 0;
-    width: 100%;
-    height: 200px;
+    width: 250px;
+    height: 175px;
   }
 `;
 
