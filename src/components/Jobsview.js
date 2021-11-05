@@ -32,9 +32,7 @@ function Jobsview() {
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
-            <ItemImg>
-              <img src={infoCards.fields.logo[0].url} alt="Logo de la empresa"></img>
-            </ItemImg>
+            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/hero.svg"/>}
             <Itemtext>
               <h6>{infoCards.fields.name_job}</h6>
               <p>{infoCards.fields.salary}</p>
@@ -130,11 +128,15 @@ const JobHeaderInfo = styled.div`
     width: 1040px;
   }
 `;
-const ItemImg = styled.div`
-  img {
-    border-radius: 5px;
-    width: 100px;
+const ItemImg = styled.img`
+  width: 100px;
+  @media (min-width: 834px) {
+    width: 150px;
   }
+  @media (min-width: 1440px) {
+    width: 150px;
+  }
+
 `;
 
 const Itemtext = styled.div`

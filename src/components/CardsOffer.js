@@ -9,9 +9,8 @@ import { Link } from "react-router-dom";
 function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
-  const [, setError] = useState(null);
-  
-
+  const [errorHandler, setErrorHandler] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(" ");
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
@@ -21,15 +20,12 @@ function CardsOffer() {
       }
     )
     .then((response) => {
-      console.log(response)
       if(!response.ok){
-        throw Error("No se pudieron cargas la ofertas, intentelo más tarde o recargue la página")
+        throw Error("No se pudieron cargar las ofertas, por favor inténtelo más tarde o recargue la página.")
       }
       return response.json();
     })
     .then((res) => {
-      console.log(res)
-      console.log(post)
       if (context === "Filtrar por tecnico") {
         setPost(res.records);
       } else {
@@ -40,13 +36,13 @@ function CardsOffer() {
           setPost(filteredOptions);
         }
       }
-      setError(null)
+      setErrorHandler(false)
     })
     .catch((err) => {
-      console.log(err.message);
-      setError(err.message)
+      setErrorMessage(err.message)
+      setErrorHandler(true)
     });
-  });
+  },[]);
   return (
     <CardSection>
       <WrapperTitle>
@@ -58,39 +54,40 @@ function CardsOffer() {
         </TitleContent>
       </WrapperTitle>    
       <Container>
-        {post ? post.map((currElement) => (
-          <Link to={`/jobsview/${currElement.id}`}>
-            <Wrapper key={currElement.createdTime}>
-              <CardContent>
-              {!currElement.fields.logo[0].url ? <Jobs src="../img/principal-logo.png"/> : <Jobs src={currElement.fields.logo[0].url}/>}  
-                <Jobs src={currElement.fields.logo[0].url}/>
-                <Content>
-                  <Title>{currElement.fields.career.join(", ")}</Title>
-                  <ContentCompany>
-                    <CompanyName>{currElement.fields.name_company}</CompanyName>
-                  </ContentCompany>
-                  <ContainerText>
-                    <ContentType>{currElement.fields.name_job}</ContentType>
-                  </ContainerText>
-                  <WrapperTags>
-                    {currElement.fields.type_job.map((currentTypeJob) => (
-                      <TogleTags>{currentTypeJob}</TogleTags>
-                    ))}
-                    {currElement.fields.job_level.map((currentTypeJobLevel) => (
-                      <TogleTags>{currentTypeJobLevel}</TogleTags>
-                    ))}
-                  </WrapperTags>
-                  <ButtonCard>
-                    <Link to={`/jobsview/${currElement.id}`}>
-                      Más Información
-                      <ArrowIcon />
-                    </Link>
-                  </ButtonCard>
-                </Content>
-              </CardContent>
-            </Wrapper>
-          </Link>
-        )) : null}
+        {errorHandler ? <ErrorMessage><p>{errorMessage}</p></ErrorMessage> : 
+          post.map((currElement) => (
+            <Link to={`/jobsview/${currElement.id}`}>
+              <Wrapper key={currElement.createdTime}>
+                <CardContent>
+                  {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/hero.svg"/>}
+                  <Content>
+                    <Title>{currElement.fields.career.join(", ")}</Title>
+                    <ContentCompany>
+                      <CompanyName>{currElement.fields.name_company}</CompanyName>
+                    </ContentCompany>
+                    <ContainerText>
+                      <ContentType>{currElement.fields.name_job}</ContentType>
+                    </ContainerText>
+                    <WrapperTags>
+                      {currElement.fields.type_job.map((currentTypeJob) => (
+                        <TogleTags>{currentTypeJob}</TogleTags>
+                      ))}
+                      {currElement.fields.job_level.map((currentTypeJobLevel) => (
+                        <TogleTags>{currentTypeJobLevel}</TogleTags>
+                      ))}
+                    </WrapperTags>
+                    <ButtonCard>
+                      <Link to={`/jobsview/${currElement.id}`}>
+                        Más Información
+                        <ArrowIcon />
+                      </Link>
+                    </ButtonCard>
+                  </Content>
+                </CardContent>
+              </Wrapper>
+            </Link>
+          ))
+        }
       </Container>
     </CardSection>
   );
@@ -159,6 +156,31 @@ const Container = styled.div`
     width: 1040px;
   }
 `;
+
+const ErrorMessage = styled.div`
+  width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px auto;
+
+  @media (min-width: 834px) {
+    margin: 0 auto;
+    width: 770px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 0 auto;
+    width: 1040px;
+  }
+
+  p{
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Poppins";
+  }
+`
 
 const Wrapper = styled.div`
   border-radius: 5px;

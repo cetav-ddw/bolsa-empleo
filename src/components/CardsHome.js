@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 function Cards() {
   const [post, setPost] = useState([]);
+  const [errorHandler, setErrorHandler] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(" ");
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?maxRecords=3&sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
@@ -16,12 +18,22 @@ function Cards() {
         },
       }
     )
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(
+          "No se pudieron cargar las ofertas, por favor inténtelo más tarde o recargue la página."
+        );
+      }
+      return response.json();
+    })
+    
     .then((res) => {
       setPost(res.records);
+      setErrorHandler(false)
     })
     .catch((err) => {
-      console.log(err);
+      setErrorMessage(err.message);
+      setErrorHandler(true);
     });
   });
   return (
@@ -43,38 +55,40 @@ function Cards() {
         </TitleButton>
       </WrapperTitle>
       <Container>
-        {post.map((currElement) => (
-          <Link to={`/jobsview/${currElement.id}`}>
-            <Wrapper key={currElement.createdTime.id}>
-              <CardContent>
-                <Jobs src={currElement.fields.logo[0].url} />
-                <Content>
-                  <Title>{currElement.fields.career.join(", ")}</Title>
-                  <ContentCompany>
-                    <CompanyName>{currElement.fields.name_company}</CompanyName>
-                  </ContentCompany>
-                  <ContainerText>
-                    <ContentType>{currElement.fields.name_job}</ContentType>
-                  </ContainerText>
-                  <WrapperTags>
-                    {currElement.fields.type_job.map((currentTypeJob) => (
-                      <TogleTags>{currentTypeJob}</TogleTags>
-                    ))}
-                    {currElement.fields.job_level.map((currentTypeJobLevel) => (
-                      <TogleTags>{currentTypeJobLevel}</TogleTags>
-                    ))}
-                  </WrapperTags>
-                  <ButtonCard>
-                    <Link to={`/jobsview/${currElement.id}`}>
-                        Más Información
-                      <ArrowIcon />
-                    </Link>
-                  </ButtonCard>
-                </Content>
-              </CardContent>
-            </Wrapper>
-          </Link>
-        ))}
+        {errorHandler ? <ErrorMessage><p>{errorMessage}</p></ErrorMessage> :
+          post.map((currElement) => (
+            <Link to={`/jobsview/${currElement.id}`}>
+              <Wrapper key={currElement.createdTime.id}>
+                <CardContent>
+                {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/hero.svg"/>}
+                  <Content>
+                    <Title>{currElement.fields.career.join(", ")}</Title>
+                    <ContentCompany>
+                      <CompanyName>{currElement.fields.name_company}</CompanyName>
+                    </ContentCompany>
+                    <ContainerText>
+                      <ContentType>{currElement.fields.name_job}</ContentType>
+                    </ContainerText>
+                    <WrapperTags>
+                      {currElement.fields.type_job.map((currentTypeJob) => (
+                        <TogleTags>{currentTypeJob}</TogleTags>
+                      ))}
+                      {currElement.fields.job_level.map((currentTypeJobLevel) => (
+                        <TogleTags>{currentTypeJobLevel}</TogleTags>
+                      ))}
+                    </WrapperTags>
+                    <ButtonCard>
+                      <Link to={`/jobsview/${currElement.id}`}>
+                          Más Información
+                        <ArrowIcon />
+                      </Link>
+                    </ButtonCard>
+                  </Content>
+                </CardContent>
+              </Wrapper>
+            </Link>
+          ))
+        }
       </Container>
       <CardsButton>
         <Explorebutton />
@@ -158,6 +172,31 @@ const Container = styled.div`
     width: 1040px;
   }
 `;
+
+const ErrorMessage = styled.div`
+  width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px auto;
+
+  @media (min-width: 834px) {
+    margin: 0 auto;
+    width: 770px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 0 auto;
+    width: 1040px;
+  }
+
+  p{
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Poppins";
+  }
+`
 
 const Wrapper = styled.div`
   border-radius: 5px;
