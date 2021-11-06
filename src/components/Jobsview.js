@@ -6,7 +6,6 @@ import { WrapperTags, TogleTags } from "./Tags";
 function Jobsview() {
   
   let {id} = useParams();
-  console.log(id);
   const [infoCards, setInfoCards] = useState({});
 
   useEffect(() => {
@@ -17,7 +16,6 @@ function Jobsview() {
         },
       })
       const cardhome = await data.json()
-      console.log(cardhome);
       setInfoCards(cardhome);
     }
     obtenerDatos()
@@ -32,10 +30,10 @@ function Jobsview() {
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
-            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/hero.svg"/>}
+            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/building.svg"/>}
             <Itemtext>
               <h6>{infoCards.fields.name_job}</h6>
-              <p>{infoCards.fields.salary}</p>
+              {infoCards.fields.salary ? <p>Salario: ${infoCards.fields.salary}</p> : <p>Salario no disponible</p>}
               <p>{infoCards.fields.name_company}</p>
               <p>{infoCards.fields.career}</p>
             </Itemtext>
@@ -60,7 +58,7 @@ function Jobsview() {
                   <TogleTags>{currentTypeJob}</TogleTags>
                 ))}
             </WrapperTags>
-            
+
             <h3>Contáctenos</h3>
             <p>{infoCards.fields.email}</p>
           </JobBodyInfo>
@@ -73,7 +71,6 @@ function Jobsview() {
     </Container>
   );
 }
-
 
 export default Jobsview;
 
@@ -124,7 +121,6 @@ const ItemImg = styled.img`
   @media (min-width: 1440px) {
     width: 150px;
   }
-
 `;
 
 const Itemtext = styled.div`
@@ -137,7 +133,7 @@ const Itemtext = styled.div`
 
   h6 {
     font-size: 20px;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
     margin-top: 0;
 
     @media (min-width: 1440px) {
