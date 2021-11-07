@@ -39,7 +39,8 @@ const Welcome = styled.p`
   display: inline-block;
   font-family: "Poppins", sans-serif;
   font-size: 1.375rem;
-  font-weight: 500;
+  font-weight: bolder;
+  
   @media (min-width: 834px) {
     font-size: 2.313rem;
     font-weight: 700;

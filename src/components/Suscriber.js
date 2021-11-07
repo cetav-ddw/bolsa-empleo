@@ -4,7 +4,7 @@ import { Wrapper } from "./Hero";
 
 function Suscriber() {
   const info = {
-    name: "Suscribete a nuestro newsletter",
+    name: "Suscríbete a nuestro newsletter",
     label: "Ingrese su Email:",
     image: "img/subscriber.svg",
     url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
@@ -103,11 +103,11 @@ const Email = styled.input`
     padding-left: 10px;
   }
   @media (min-width: 834px) {
-    width: 60%;
+    width: 58%;
     margin-top: 0;
   }
   @media (min-width: 1440px) {
-    width: 70%;
+    width: 68%;
   }
 `;
 
@@ -124,12 +124,13 @@ const Button = styled.input`
   border-radius: 5px;
   padding: 12px 16px;
   color: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 22px;
   border: none;
   margin-left: 188px;
   margin-top: 20px;
+  -webkit-appearance: button;
 
   @media (min-width: 834px) {
     margin-left: 0;

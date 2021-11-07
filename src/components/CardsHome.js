@@ -322,8 +322,9 @@ const ContentType = styled.p`
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-bottom: 16px;
+  color: #5e5e5e;
+  
   @media (min-width: 1440px) {
-    color: #5e5e5e;
     font-size: 18px;
   }
 `;

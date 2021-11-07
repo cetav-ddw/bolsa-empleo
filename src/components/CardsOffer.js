@@ -42,7 +42,7 @@ function CardsOffer() {
       setErrorMessage(err.message)
       setErrorHandler(true)
     });
-  },[]);
+  },[context]);
   return (
     <CardSection>
       <WrapperTitle>
@@ -163,12 +163,13 @@ const ErrorMessage = styled.div`
   justify-content: center;
   align-items: center;
   margin: 16px auto;
+  border: 2px solid #5755cc;
+  border-radius: 5px;
 
   @media (min-width: 834px) {
     margin: 0 auto;
     width: 770px;
   }
-
   @media (min-width: 1440px) {
     margin: 0 auto;
     width: 1040px;
@@ -212,6 +213,7 @@ const CardContent = styled.div`
   margin: 0 auto;
   padding: 20px 0;
   width: 310px;
+
   @media (min-width: 834px) {
     margin: auto 16px;
     width: 85%;
@@ -227,6 +229,7 @@ const CardContent = styled.div`
 const Jobs = styled.img`
   border-radius: 5px;
   width: 100px;
+
   @media (min-width: 834px) {
     border-radius: 5px;
     margin-right: 40px;
@@ -235,8 +238,8 @@ const Jobs = styled.img`
   @media (min-width: 1440px) {
     border-radius: 5px;
     margin: 0;
-    width: 250px;
-    height: 175px;
+    width: 225px;
+    height: 165px;
   }
 `;
 
@@ -282,6 +285,7 @@ const CompanyName = styled.p`
   font-family: "Poppins";
   font-size: 18px;
   font-weight: bolder;
+
   @media (min-width: 1440px) {
     font-size: 22px;
   }
@@ -291,6 +295,7 @@ const ContainerText = styled.div`
   align-items: start;
   text-align: left;
   width: 100%;
+
   @media (min-width: 834px) {
     align-items: start;
     text-align: left;
@@ -305,8 +310,9 @@ const ContentType = styled.p`
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-bottom: 16px;
+  color: #5e5e5e;
+
   @media (min-width: 1440px) {
-    color: #5e5e5e;
     font-size: 18px;
   }
 `;
