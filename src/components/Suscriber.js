@@ -187,7 +187,7 @@ const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 16px;
   }
 `;
 export default Suscriber;

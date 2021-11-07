@@ -63,10 +63,9 @@ function Jobsview() {
             <p>{infoCards.fields.email}</p>
 
           </JobBodyInfo>
-          {infoCards.fields.image_job ? <JobImgInfo><img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img></JobImgInfo> : null}
-
-          <OfferTime>La oferta laboral estará disponible 30 días.</OfferTime>
+          {infoCards.fields.image_job ? <JobImgInfo><img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img><p>La oferta laboral estará disponible 30 días.</p></JobImgInfo> : <p>La oferta laboral estará disponible 30 días.</p>}
         </JobDetails>
+        
       </Wrap>
     </Container>
   );
@@ -74,13 +73,6 @@ function Jobsview() {
 
 export default Jobsview;
 
-const OfferTime = styled.p`
-  margin-top: 40px;
-
-  @media (min-width: 1440px) {
-    margin-top: 0;
-  }
-`
 const Container = styled.div`
   height: 100%;
 `;
@@ -89,7 +81,7 @@ const Wrap = styled.div`
   color: black;
 
   @media (min-width: 834px) {
-    width: 770px;
+    width: 100%;
     margin: 0 auto;
   }
   @media (min-width: 1440px) {
