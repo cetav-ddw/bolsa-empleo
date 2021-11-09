@@ -152,8 +152,10 @@ const Itemtext = styled.div`
   }
   p:nth-child(4) {
     font-weight: bold;
-    color: #375bda;
+    color: #898A89;
     font-size: 12px;
+    text-transform: uppercase;
+
     @media (min-width: 1440px) {
       font-size: 16px;
     }

@@ -52,7 +52,7 @@ const ExploreAnchor = styled.div`
 `;
 
 const ExploreButton = styled.div`
-  background-color: #5755cc;
+  background-color: #CD552D;
   border-radius: 5px;
   color: white;
   display: flex;
@@ -69,5 +69,10 @@ const ExploreButton = styled.div`
     text-decoration: none;
     font-family: "Poppins";
     font-weight: bold;
+  }
+  @media (min-width: 1440px) {
+    &:hover{
+      background-color: #712E17;
+    }
   }
 `;

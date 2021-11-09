@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function Hero() {
   const info = {
-    name: "¡Hola Comunidad Cetaviana!",
+    name: "¡Hola comunidad Cetaviana!",
     hero: "img/hero.svg",
   };
   return (
@@ -11,7 +11,6 @@ function Hero() {
       <Wrapper>
         <Flex>
           <Welcome>{info.name}</Welcome>
-          <Image src={info.hero} alt="hero_muñecos" />
         </Flex>
       </Wrapper>
     </Background>
@@ -19,7 +18,7 @@ function Hero() {
 }
 
 const Background = styled.div`
-  background-color: #e1ecf4;
+  background-color: #ECECEC;
   width: 100%;
 `;
 
@@ -35,31 +34,27 @@ const Wrapper = styled.div`
 `;
 
 const Welcome = styled.p`
-  color: #5e5e5e;
+  color: #CD552D;
   display: inline-block;
   font-family: "Poppins", sans-serif;
   font-size: 1.375rem;
   font-weight: bolder;
-  
+  line-height: 60px;
+
   @media (min-width: 834px) {
     font-size: 2.313rem;
     font-weight: 700;
-    width: 200px;
   }
   @media (min-width: 1440px) {
     font-size: 4.125rem;
   }
 `;
-const Image = styled.img`
-  width: 50%;
-  max-width: 100%;
-  height: auto;
-`;
+
 const Flex = styled.div`
   padding: 48px 0px 48px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export { Hero, Wrapper };

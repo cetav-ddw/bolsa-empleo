@@ -7,7 +7,7 @@ function Footer() {
     <Backrogund>
       <Container>
         <Content>
-          <SecondaryLogo src="../img/triada-logo.png" />
+          <SecondaryLogo src="../img/triada-logo.png"/>
           <FooterOptions>
             <ul>
               <li>

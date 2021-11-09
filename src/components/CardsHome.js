@@ -59,7 +59,7 @@ function Cards() {
             <Link to={`/jobsview/${currElement.id}`}>
               <Wrapper key={currElement.createdTime.id}>
                 <CardContent>
-                {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/building.svg"/>}
+                {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/imac.svg"/>}
                   <Content>
                     <Title>{currElement.fields.career.join(", ")}</Title>
                     <ContentCompany>
@@ -133,7 +133,7 @@ const TitleContent = styled.div`
 
 const PrincipalTitle = styled.div`
   h2 {
-    color: #5755cc;
+    color: #2E2E2E;
     font-family: "Poppins", sans-serif;
     font-size: 26px;
     font-weight: bolder;
@@ -252,8 +252,8 @@ const Jobs = styled.img`
   @media (min-width: 1440px) {
     border-radius: 5px;
     margin: 0;
-    width: 250px;
-    height: 175px;
+    width: 225px;
+    height: 155px;
   }
 `;
 
@@ -274,7 +274,7 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
-  color: #5755cc;
+  color: #898A89;
   display: flex;
   flex-wrap: wrap;
   font-family: "Open Sans", sans-serif;
@@ -284,7 +284,7 @@ const Title = styled.div`
   text-transform: uppercase;
   width: 100%;
   @media (min-width: 1440px) {
-    color: #5755cc;
+    //color: #898A89;
     font-size: 16px;
     font-weight: bolder;
     margin-top: 24px;
@@ -339,7 +339,7 @@ const ButtonCard = styled.div`
 
     @media (min-width: 1440px) {
       align-items: center;
-      color: #5755cc;
+      color: #CD552D;
       display: flex;
       font-family: "Open Sans", sans-serif;
       font-size: 16px;
@@ -355,7 +355,7 @@ const ButtonCard = styled.div`
 `;
 
 const ArrowIcon = styled(ArrowForwardIosIcon)`
-  color: #5755cc;
+  color: #CD552D;
 `;
 
 const CardsButton = styled.div`

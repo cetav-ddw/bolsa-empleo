@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrapper } from "./Hero";
+
 
 function Suscriber() {
   const info = {
     name: "Suscríbete a nuestro newsletter",
     label: "Ingrese su Email:",
-    image: "img/subscriber.svg",
+    image: "img/email.svg",
     url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
     paragraph:
       "Suscríbete a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
@@ -72,6 +72,17 @@ function Suscriber() {
   );
 }
 
+const Wrapper = styled.div`
+  margin: 48px auto;
+  width: 343px;
+  @media (min-width: 834px) {
+    width: 770px;
+  }
+  @media (min-width: 1440px) {
+    width: 1040px;
+  }
+`
+
 const Title = styled.h2`
   font-family: "Poppins", sans-serif;
   font-size: 1.625rem;
@@ -91,6 +102,7 @@ const Label = styled.label`
 
 const Email = styled.input`
   width: 100%;
+  padding-left: 5px;
   height: 54px;
   border: 2px solid #7c7c7c;
   border-radius: 8px;
@@ -98,16 +110,13 @@ const Email = styled.input`
   font-size: 1rem;
   color: #292929;
   font-family: "Open Sans", sans-serif;
-  ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    padding-left: 10px;
-  }
+  
   @media (min-width: 834px) {
-    width: 58%;
+    width: 64%;
     margin-top: 0;
   }
   @media (min-width: 1440px) {
-    width: 68%;
+    width: 73%;
   }
 `;
 
@@ -120,7 +129,7 @@ const Paragraph = styled.p`
 `;
 
 const Button = styled.input`
-  background: #5755cc;
+  background: #CD552D;
   border-radius: 5px;
   padding: 12px 16px;
   color: #fff;
@@ -140,7 +149,7 @@ const Button = styled.input`
 
   @media (min-width: 1440px) {
     &:hover{
-      background-color: #4240AA;
+      background-color: #712E17;
     }
   }
 `;
@@ -156,11 +165,11 @@ const Aria = styled.div`
   left: -5000px;
 `;
 const Container = styled.div`
-  width: 50%;
+  width: 25%;
 `;
 const Form = styled.form`
   @media (min-width: 834px) {
-    width: 50%;
+    width: 60%;
   }
 `;
 const Image = styled.img`
@@ -168,7 +177,8 @@ const Image = styled.img`
   @media (min-width: 834px) {
     display: block;
     padding-top: 38px;
-    width: 90%;
+    width: 100%;
+    height: 300px;
   }
 `;
 const Mailchimp = styled.div`
@@ -176,6 +186,8 @@ const Mailchimp = styled.div`
   @media (min-width: 834px) {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
   }
 `;
 const SuscribeButton = styled.div`
