@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router";
 import { WrapperTags, TogleTags } from "./Tags";
+import Navbar from "./Navbar"
+import Footer from "../components/Footer";
 
 function Jobsview() {
   
@@ -27,10 +29,11 @@ function Jobsview() {
     
   return (
     <Container>
+      <Navbar/>
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
-            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/building.svg"/>}
+            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/imac.svg"/>}
             <Itemtext>
               <h6>{infoCards.fields.name_job}</h6>
               {infoCards.fields.salary ? <p>Salario: ${infoCards.fields.salary}</p> : <p>Salario no disponible</p>}
@@ -45,6 +48,12 @@ function Jobsview() {
               <h3>Descripción del Trabajo</h3>
               <p>{infoCards.fields.description}</p>
             </Description>
+
+            <Requirements>
+              <h3>Requisitos</h3>
+              <p>{infoCards.fields.requeriments}</p>
+            </Requirements>
+
             <h3>Nivel de Conocimientos</h3>
             <WrapperTags>
               {infoCards.fields.job_level.map((currentTypeJobLevel) => (
@@ -65,8 +74,8 @@ function Jobsview() {
           </JobBodyInfo>
           {infoCards.fields.image_job ? <JobImgInfo><img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img><p>La oferta laboral estará disponible 30 días.</p></JobImgInfo> : <p>La oferta laboral estará disponible 30 días.</p>}
         </JobDetails>
-        
       </Wrap>
+      <Footer/>
     </Container>
   );
 }
@@ -209,6 +218,17 @@ const Description = styled.div`
     font-size: 18px;
   }
 `;
+
+const Requirements = styled.div`
+  width: 100%;
+  color: black;
+  margin-top: 32px;
+  p {
+    width: 100%;
+    color: #5e5e5e;
+    font-size: 18px;
+  }
+`
 
 const JobBodyInfo = styled.div`
   width: 343px;
