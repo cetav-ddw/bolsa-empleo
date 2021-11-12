@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { WrapperTags, TogleTags } from "./Tags";
 import Navbar from "./Navbar"
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 
 function Jobsview() {
   
