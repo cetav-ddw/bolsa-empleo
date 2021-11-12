@@ -47,7 +47,9 @@ function Jobsview() {
           <JobBodyInfo>
             {infoCards.fields.description ? <Description><h3>Descripción del Trabajo</h3><p>{infoCards.fields.description}</p></Description> : null }
             
-            {infoCards.fields.requeriments ? <Requirements><h3>Requisitos</h3> <p>{infoCards.fields.requeriments.split("-")}</p> </Requirements> : null }
+            {infoCards.fields.requeriments ? <Requirements><h3>Requisitos</h3>{infoCards.fields.requeriments.split("\n").map((currentRequeriments) => (
+              <ActualRequirement>{currentRequeriments}</ActualRequirement>
+            ))}</Requirements> : null }
             
             <Level>
               <h3>Nivel de Conocimientos</h3>
@@ -243,6 +245,9 @@ const Requirements = styled.div`
     font-size: 18px;
     width: 100%;
   }
+`
+const ActualRequirement = styled.p`
+  padding-bottom: 16px;
 `
 const Level = styled.div`
 `
