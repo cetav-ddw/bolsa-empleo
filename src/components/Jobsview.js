@@ -39,7 +39,7 @@ function Jobsview() {
               <h6>{infoCards.fields.name_job}</h6>
               {infoCards.fields.salary ? <p>Salario: ${infoCards.fields.salary}</p> : <p>Salario no disponible</p>}
               <p>{infoCards.fields.name_company}</p>
-              <p>{infoCards.fields.career}</p>
+              <p>{infoCards.fields.career.join(", ")}</p>
             </Itemtext>
           </JobHeaderInfo>
         </JobHeader>
@@ -182,7 +182,7 @@ const Itemtext = styled.div`
   }
   @media (min-width: 1440px) {
     margin-left: 56px;
-    width: 350px;
+    width: 360px;
   }
 `;
 
