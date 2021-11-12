@@ -20,21 +20,21 @@ const WrapperTags = styled.div`
   }
 `;
 const TogleTags = styled.div`
-  font-family: "Open Sans", sans-serif;
   align-items: center;
   background: #e1ecf4;
   border-radius: 5px;
   color: #0c4066;
   display: flex;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.5rem;
+  font-weight: bold;
   height: 28px;
   justify-content: center;
-  text-transform: uppercase;
-  width: 94px;
-  text-align: center;
-  font-weight: bold;
   margin-bottom: 8px;
   margin-right: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 94px;
 `;
 
 export { WrapperTags, TogleTags, Tags };

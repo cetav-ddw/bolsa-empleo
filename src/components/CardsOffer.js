@@ -59,7 +59,7 @@ function CardsOffer() {
             <Link to={`/jobsview/${currElement.id}`}>
               <Wrapper key={currElement.createdTime}>
                 <CardContent>
-                  {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/imac.svg"/>}
+                  {currElement.fields.logo ? <JobsImgContainer><Jobs src={currElement.fields.logo[0].url} /></JobsImgContainer>  : <JobsImgContainer><Jobs src="img/imac.svg"/></JobsImgContainer>}
                   <Content>
                     <Title>{currElement.fields.career.join(", ")}</Title>
                     <ContentCompany>
@@ -121,11 +121,11 @@ const TitleContent = styled.div`
   padding-top: 32px;
   width: 343px;
   @media (min-width: 834px) {
-    width: 770px;
+    align-items: baseline;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     justify-content: space-between;
+    width: 770px;
   }
   @media (min-width: 1440px) {
     width: 1040px;
@@ -148,23 +148,23 @@ const PrincipalTitle = styled.div`
 
 const Container = styled.div`
   @media (min-width: 1440px) {
-    grid-template-columns: 1fr 1fr 1fr;
     display: grid;
-    gap: 16px;
     flex-wrap: wrap;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
     margin: 0 auto;
     width: 1040px;
   }
 `;
 
 const ErrorMessage = styled.div`
-  width: 343px;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid #5755cc;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 16px auto;
-  border: 2px solid #5755cc;
-  border-radius: 5px;
+  width: 343px;
 
   @media (min-width: 834px) {
     margin: 0 auto;
@@ -176,10 +176,10 @@ const ErrorMessage = styled.div`
   }
 
   p{
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
     font-family: "Poppins";
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
   }
 `
 
@@ -200,8 +200,8 @@ const Wrapper = styled.div`
     border-radius: 5px;
     border: 2px solid #5e5e5e;
     display: flex;
-    margin: 0;
     flex-direction: column;
+    margin: 0;
     width: 333px;
   }
 `;
@@ -226,20 +226,33 @@ const CardContent = styled.div`
   }
 `;
 
+const JobsImgContainer = styled.div`
+  align-items: center;
+  display: flex;
+  width: 100px;
+
+  @media (min-width: 834px) {
+    margin-right: 40px;
+    width: 125px;
+  }
+  @media (min-width: 1440px) {
+    height: 250px;
+    margin: 0;
+    width: 225px;
+  }
+`
+
 const Jobs = styled.img`
   border-radius: 5px;
   width: 100px;
 
   @media (min-width: 834px) {
     border-radius: 5px;
-    margin-right: 40px;
-    width: 125px;
+    width: 100%;
   }
   @media (min-width: 1440px) {
     border-radius: 5px;
-    margin: 0;
-    width: 225px;
-    height: 155px;
+    width: 100%;
   }
 `;
 
@@ -270,11 +283,10 @@ const Title = styled.div`
   text-transform: uppercase;
   width: 100%;
   @media (min-width: 1440px) {
-    //color: #5755cc;
     font-size: 16px;
     font-weight: bolder;
-    margin-top: 24px;
     height: 50px;
+    margin-top: 24px;
   }
 `;
 
@@ -307,10 +319,10 @@ const ContainerText = styled.div`
 `;
 
 const ContentType = styled.p`
+  color: #5e5e5e;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-bottom: 16px;
-  color: #5e5e5e;
 
   @media (min-width: 1440px) {
     font-size: 18px;

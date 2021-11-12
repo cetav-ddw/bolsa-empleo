@@ -15,30 +15,32 @@ function ErrorPage() {
 export default ErrorPage;
 
 const Container = styled.div`
-  margin: 0;
-  height: 100vh;
-  width: 100%;
+  align-items: center;
   background-image: url("img/page-404.png");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
+  margin: 0;
+  width: 100%;
   h1 {
-    font-size: 105px;
     font-family: "Poppins";
+    font-size: 105px;
   }
   p {
-    font-size: 26px;
     font-family: "Open Sans";
+    font-size: 26px;
+    
   }
   a {
-    background-color: #5755cc;
+    background-color: #CD552D;
     border-radius: 5px;
     color: white;
+    font-size: 20px;
+    margin-top: 32px;
     padding: 18px 16px;
     text-decoration: none;
-    margin-top: 32px;
   }
 `;

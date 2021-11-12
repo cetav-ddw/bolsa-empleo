@@ -59,7 +59,7 @@ function Cards() {
             <Link to={`/jobsview/${currElement.id}`}>
               <Wrapper key={currElement.createdTime.id}>
                 <CardContent>
-                {currElement.fields.logo ? <Jobs src={currElement.fields.logo[0].url} /> : <Jobs src="img/imac.svg"/>}
+                {currElement.fields.logo ? <JobsImgContainer><Jobs src={currElement.fields.logo[0].url} /></JobsImgContainer> : <JobsImgContainer><Jobs src="img/imac.svg"/></JobsImgContainer>}
                   <Content>
                     <Title>{currElement.fields.career.join(", ")}</Title>
                     <ContentCompany>
@@ -176,11 +176,11 @@ const Container = styled.div`
 `;
 
 const ErrorMessage = styled.div`
-  width: 343px;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 16px auto;
+  width: 343px;
 
   @media (min-width: 834px) {
     margin: 0 auto;
@@ -193,10 +193,10 @@ const ErrorMessage = styled.div`
   }
 
   p{
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
     font-family: "Poppins";
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
   }
 `
 
@@ -241,19 +241,33 @@ const CardContent = styled.div`
   }
 `;
 
-const Jobs = styled.img`
-  border-radius: 5px;
+const JobsImgContainer = styled.div`
+  align-items: center;
+  display: flex;
   width: 100px;
+
   @media (min-width: 834px) {
-    border-radius: 5px;
     margin-right: 40px;
     width: 125px;
   }
   @media (min-width: 1440px) {
-    border-radius: 5px;
+    height: 250px;
     margin: 0;
     width: 225px;
-    height: 155px;
+  }
+`
+
+const Jobs = styled.img`
+  border-radius: 5px;
+  width: 100px;
+
+  @media (min-width: 834px) {
+    border-radius: 5px;
+    width: 100%;
+  }
+  @media (min-width: 1440px) {
+    border-radius: 5px;
+    width: 100%;
   }
 `;
 
@@ -284,11 +298,10 @@ const Title = styled.div`
   text-transform: uppercase;
   width: 100%;
   @media (min-width: 1440px) {
-    //color: #898A89;
     font-size: 16px;
     font-weight: bolder;
-    margin-top: 24px;
     height: 50px;
+    margin-top: 24px;
   }
 `;
 
@@ -319,10 +332,10 @@ const ContainerText = styled.div`
 `;
 
 const ContentType = styled.p`
+  color: #5e5e5e;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-bottom: 16px;
-  color: #5e5e5e;
   
   @media (min-width: 1440px) {
     font-size: 18px;

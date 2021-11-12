@@ -4,8 +4,8 @@ import { Wrapper } from "./Hero";
 
 function Banner() {
   const info = {
-    title: "Creando Oportunidades",
-    subtitle: "CETAV | Bolsa de empleo",
+    title: "Creando oportunidades",
+    subtitle: "SOY CETAV | Bolsa de empleo",
     banner: "img/banner.svg",
     logo: "img/logo.png",
   };
@@ -25,13 +25,13 @@ function Banner() {
 }
 
 const Flex = styled.div`
-  width: 296px;
   margin: 0 auto;
+  width: 296px;
   @media (min-width: 834px) {
-    width: 672px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+    width: 672px;
   }
   @media (min-width: 1440px) {
     width: 814px;
@@ -40,9 +40,9 @@ const Flex = styled.div`
 
 const Background = styled.div`
   background: #2E2E2E;
-  width: 100%;
-  margin-bottom: 48px;
   border-radius: 5px;
+  margin-bottom: 48px;
+  width: 100%;
 `;
 const Title = styled.h2`
   color: #fff;
@@ -65,13 +65,13 @@ const Subtitle = styled.h3`
   }
 `;
 const Image = styled.img`
-  width: 80%;
-  max-width: 100%;
   height: auto;
   margin: 44px 0px 44px 34px;
+  max-width: 100%;
+  width: 80%;
   @media (min-width: 834px) {
-    width: 36%;
     margin: 60px 0px 60px;
+    width: 36%;
   }
 `;
 
