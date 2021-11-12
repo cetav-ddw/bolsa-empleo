@@ -46,12 +46,12 @@ function Jobsview() {
           <JobBodyInfo>
             <Description>
               <h3>Descripción del Trabajo</h3>
-              <p>{infoCards.fields.description}</p>
+              <p>{infoCards.fields.description.split("/\r?\n/")}</p>
             </Description>
 
             <Requirements>
               <h3>Requisitos</h3>
-              <p>{infoCards.fields.requeriments}</p>
+              <p>{infoCards.fields.requeriments.split("/\r?\n/")}</p>
             </Requirements>
 
             <h3>Nivel de Conocimientos</h3>
