@@ -84,9 +84,9 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h2`
+  color: #292929;
   font-family: "Poppins", sans-serif;
   font-size: 1.625rem;
-  color: #292929;
   font-weight: 700;
   @media (min-width: 834px) {
     font-size: 2.313rem;
@@ -94,26 +94,26 @@ const Title = styled.h2`
 `;
 const Label = styled.label`
   display: block;
-  font-size: 1.125rem;
   font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-top: 10px;
 `;
 
 const Email = styled.input`
-  width: 100%;
-  padding-left: 5px;
-  height: 54px;
-  border: 2px solid #7c7c7c;
   border-radius: 8px;
-  margin-top: 10px;
-  font-size: 1rem;
+  border: 2px solid #7c7c7c;
   color: #292929;
   font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  height: 54px;
+  margin-top: 10px;
+  padding-left: 5px;
+  width: 100%;
   
   @media (min-width: 834px) {
-    width: 64%;
     margin-top: 0;
+    width: 64%;
   }
   @media (min-width: 1440px) {
     width: 73%;
@@ -121,25 +121,25 @@ const Email = styled.input`
 `;
 
 const Paragraph = styled.p`
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  font-size: 1.3rem;
   color: #5e5e5e;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
   margin-top: 14px;
 `;
 
 const Button = styled.input`
+  -webkit-appearance: button;
   background: #CD552D;
   border-radius: 5px;
-  padding: 12px 16px;
+  border: none;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-weight: bold;
   font-size: 22px;
-  border: none;
+  font-weight: bold;
   margin-left: 188px;
   margin-top: 20px;
-  -webkit-appearance: button;
+  padding: 12px 16px;
 
   @media (min-width: 834px) {
     margin-left: 0;
@@ -176,16 +176,16 @@ const Image = styled.img`
   display: none;
   @media (min-width: 834px) {
     display: block;
+    height: 300px;
     padding-top: 38px;
     width: 100%;
-    height: 300px;
   }
 `;
 const Mailchimp = styled.div`
   margin-bottom: 48px;
   @media (min-width: 834px) {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
     margin-top: 48px;
   }
@@ -196,9 +196,9 @@ const SuscribeButton = styled.div`
 `;
 const Flex = styled.div`
   @media (min-width: 834px) {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 16px;
   }
 `;

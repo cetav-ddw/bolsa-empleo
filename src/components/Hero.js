@@ -23,8 +23,8 @@ const Background = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 343px;
   margin: 0 auto;
+  width: 343px;
   @media (min-width: 834px) {
     width: 770px;
   }
@@ -51,10 +51,10 @@ const Welcome = styled.p`
 `;
 
 const Flex = styled.div`
-  padding: 48px 0px 48px;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  padding: 48px 0px 48px;
 `;
 
 export { Hero, Wrapper };

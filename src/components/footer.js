@@ -33,9 +33,9 @@ function Footer() {
 export default Footer;
 
 const Backrogund = styled.div`
-  width: 100%;
   background: #292929;
   height: auto;
+  width: 100%;
 `;
 
 const Container = styled.div`
@@ -55,19 +55,19 @@ const Content = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 2rem 0;
+  text-align: center;
   @media (min-width: 1440px) {
-    width: 1040px;
-    margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
+    margin: 0 auto;
+    width: 1040px;
   }
 `;
 
 const SecondaryLogo = styled.img`
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 `;
 
 const FooterOptions = styled.div`
@@ -91,9 +91,9 @@ const FooterOptions = styled.div`
   }
 
   img {
+    height: 45px;
     margin: 0 auto;
     width: 45px;
-    height: 45px;
   }
   p {
     margin-top: 24px;

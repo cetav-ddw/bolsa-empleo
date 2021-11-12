@@ -18,22 +18,22 @@ export default function Filter() {
 }
 
 const Container = styled.div`
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
   select {
-    color: #292929;
     background-color: transparent;
     border-radius: 5px;
     border: 3px solid #7c7c7c;
-    width: 100%;
-    height: 40px;
-    font-size: 1rem;
+    color: #292929;
     font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    width: 100%;
     option {
-      color: #7c7c7c;
-      font-family: "Poppins", sans-serif;
       border-radius: 5px;
       border: 3px solid #7c7c7c;
+      color: #7c7c7c;
+      font-family: "Poppins", sans-serif;
     }
 
     @media (min-width: 834px) {
@@ -44,7 +44,7 @@ const Container = styled.div`
     }
   }
   @media (min-width: 834px) {
-    width: 80%;
     display: contents;
+    width: 80%;
   }
 `;

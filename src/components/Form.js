@@ -13,10 +13,10 @@ function Form() {
 }
 
 const Formulario = styled.iframe`
-  width: 100%;
-  height: 2200px;
-  overflow: hidden;
   background: transparent;
   border: none;
+  height: 2200px;
+  overflow: hidden;
+  width: 100%;
 `;
 export default Form;

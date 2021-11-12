@@ -26,6 +26,7 @@ function Jobsview() {
   if(!infoCards.id){
     return null
   }
+  console.log(infoCards.fields.requeriments.split("-"));
     
   return (
     <Container>
@@ -38,38 +39,38 @@ function Jobsview() {
               <h6>{infoCards.fields.name_job}</h6>
               {infoCards.fields.salary ? <p>Salario: ${infoCards.fields.salary}</p> : <p>Salario no disponible</p>}
               <p>{infoCards.fields.name_company}</p>
-              <p>{infoCards.fields.career}</p>
+              <p>{infoCards.fields.career.join(", ")}</p>
             </Itemtext>
           </JobHeaderInfo>
         </JobHeader>
         <JobDetails>
           <JobBodyInfo>
-            <Description>
-              <h3>Descripción del Trabajo</h3>
-              <p>{infoCards.fields.description.split("/\r?\n/")}</p>
-            </Description>
-
-            <Requirements>
-              <h3>Requisitos</h3>
-              <p>{infoCards.fields.requeriments.split("/\r?\n/")}</p>
-            </Requirements>
-
-            <h3>Nivel de Conocimientos</h3>
-            <WrapperTags>
-              {infoCards.fields.job_level.map((currentTypeJobLevel) => (
-                <TogleTags>{currentTypeJobLevel}</TogleTags>
-              ))}
-            </WrapperTags>
+            {infoCards.fields.description ? <Description><h3>Descripción del Trabajo</h3><p>{infoCards.fields.description}</p></Description> : null }
             
-            <h3>Modalidad de Trabajo</h3>
-            <WrapperTags>
-              {infoCards.fields.type_job.map((currentTypeJob) => (
-                <TogleTags>{currentTypeJob}</TogleTags>
-              ))}
-            </WrapperTags>
+            {infoCards.fields.requeriments ? <Requirements><h3>Requisitos</h3> <p>{infoCards.fields.requeriments.split("-")}</p> </Requirements> : null }
+            
+            <Level>
+              <h3>Nivel de Conocimientos</h3>
+              <WrapperTags>
+                {infoCards.fields.job_level.map((currentTypeJobLevel) => (
+                  <TogleTags>{currentTypeJobLevel}</TogleTags>
+                ))}
+              </WrapperTags>
+            </Level>
 
-            <h3>Contáctenos</h3>
-            <p>{infoCards.fields.email}</p>
+            <Modality>
+              <h3>Modalidad de Trabajo</h3>
+              <WrapperTags>
+                {infoCards.fields.type_job.map((currentTypeJob) => (
+                  <TogleTags>{currentTypeJob}</TogleTags>
+                ))}
+              </WrapperTags>
+            </Modality>
+
+            <Contact>
+              <h3>Contáctenos</h3>
+              <p>{infoCards.fields.email}</p>
+            </Contact>
 
           </JobBodyInfo>
           {infoCards.fields.image_job ? <JobImgInfo><img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img><p>La oferta laboral estará disponible 30 días.</p></JobImgInfo> : <p>La oferta laboral estará disponible 30 días.</p>}
@@ -82,13 +83,14 @@ function Jobsview() {
 
 export default Jobsview;
 
+
+
 const Container = styled.div`
   height: 100%;
 `;
 
 const Wrap = styled.div`
   color: black;
-
   @media (min-width: 834px) {
     width: 100%;
     margin: 0 auto;
@@ -100,19 +102,19 @@ const Wrap = styled.div`
 `;
 
 const JobHeader = styled.div`
-  color: black;
   border-radius: 0 0 5px 5px;
   border: 2px solid #292929;
   box-sizing: border-box;
+  color: black;
   width: 100%;
 `;
 
 const JobHeaderInfo = styled.div`
   align-items: center;
+  color: black;
   display: flex;
   margin: 24px auto;
   width: 343px;
-  color: black;
   @media (min-width: 834px) {
     width: 770px;
   }
@@ -134,37 +136,38 @@ const Itemtext = styled.div`
   color: black;
   display: flex;
   flex-direction: column;
+  margin-left: 32px;
   text-align: left;
   width: 211px;
-  margin-left: 32px;
-
   h6 {
+    font-family: "Poppins";
     font-size: 20px;
     margin-bottom: 16px;
     margin-top: 0;
-
     @media (min-width: 1440px) {
       font-size: 26px;
     }
   }
   p {
+    color: #081f32;
+    font-family: "Open Sans";
+    font-size: 14px;
     margin-bottom: 8px;
     margin-top: 0;
-    color: #081f32;
-    font-size: 14px;
     @media (min-width: 1440px) {
       font-size: 18px;
     }
   }
   p:nth-child(3) {
+    font-family: "Poppins";
     font-weight: bolder;
   }
   p:nth-child(4) {
-    font-weight: bold;
     color: #898A89;
+    font-family: "Poppins";
     font-size: 12px;
+    font-weight: bold;
     text-transform: uppercase;
-
     @media (min-width: 1440px) {
       font-size: 16px;
     }
@@ -175,75 +178,83 @@ const Itemtext = styled.div`
   }
   @media (min-width: 1440px) {
     margin-left: 56px;
-    width: 350px;
+    width: 360px;
   }
 `;
 
 const JobDetails = styled.div`
-  color: black;
   margin: 32px auto;
-  text-align: left;
   width: 343px;
-
-  h3 {
-    font-size: 20px;
-    margin: 32px 0 8px 0;
-  }
-  h3:nth-child(1) {
-    margin: 0 0 8px 0;
-  }
-  p {
-    color: #5e5e5e;
-    font-size: 18px;
-  }
-
   @media (min-width: 834px) {
-    width: 770px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 770px;
   }
-
   @media (min-width: 1440px) {
     width: 1040px;
   }
 `;
 
-const Description = styled.div`
-  width: 100%;
-  color: black;
-  p {
-    width: 100%;
-    color: #5e5e5e;
-    font-size: 18px;
-  }
-`;
-
-const Requirements = styled.div`
-  width: 100%;
-  color: black;
-  margin-top: 32px;
-  p {
-    width: 100%;
-    color: #5e5e5e;
-    font-size: 18px;
-  }
-`
-
 const JobBodyInfo = styled.div`
-  width: 343px;
-  color: black;
+  width: 100%;
+  text-align: left;
+  h3 {
+    color: black;
+    font-family: "Poppins";
+    font-size: 20px;
+    margin: 32px 0 8px 0;
+  }
+  p {
+    color: #5e5e5e;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+  }
   @media (min-width: 834px) {
     width: 60%;
     margin-right: 16px;
   }
 `;
 
-const JobImgInfo = styled.div`
+const Description = styled.div`
+  color: black;
   width: 100%;
-  margin-top: 48px;
-  border-radius: 5px;
+  h3 {
+    font-family: "Poppins";
+  }
+  p {
+    color: #5e5e5e;
+    font-size: "Open Sans";
+    font-size: 18px;
+    width: 100%;
+  }
+`;
 
+const Requirements = styled.div`
+  color: black;
+  margin-top: 32px;
+  width: 100%;
+  h3 {
+    font-family: "Poppins";
+  }
+  p {
+    color: #5e5e5e;
+    font-size: "Open Sans";
+    font-size: 18px;
+    width: 100%;
+  }
+`
+const Level = styled.div`
+`
+const Modality = styled.div`
+`
+const Contact = styled.div`
+`
+
+const JobImgInfo = styled.div`
+  border-radius: 5px;
+  margin-top: 48px;
+  width: 100%;
   img {
     width: 100%;
   }
@@ -252,12 +263,10 @@ const JobImgInfo = styled.div`
     font-size: 12px;
     font-weight: bolder;
   }
-
   @media (min-width: 834px) {
     margin-top: 0;
     width: 60%;
   }
-
   @media (min-width: 1440px) {
     width: 50%;
   }
