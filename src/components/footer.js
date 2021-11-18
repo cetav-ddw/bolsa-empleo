@@ -7,19 +7,20 @@ function Footer() {
     <Backrogund>
       <Container>
         <Content>
-          <SecondaryLogo src="../img/triada-logo.png"/>
+          <SecondaryLogo src="../img/triada-logo.png" />
           <FooterOptions>
             <ul>
-              <li>
-                <Link to="/">Inicio</Link>
-              </li>
               <li>
                 <Link to="/ofertas">Ofertas Laborales</Link>
               </li>
             </ul>
           </FooterOptions>
           <FooterLogo>
-            <a href="https://www.facebook.com/cetavcr" rel="noreferrer" target="_blank">
+            <a
+              href="https://www.facebook.com/cetavcr"
+              rel="noreferrer"
+              target="_blank"
+            >
               <img src="../img/facebook-logo.svg" alt="Facebook Logo"></img>
             </a>
             <p>© CETAV Bolsa de empleos | 2021</p>

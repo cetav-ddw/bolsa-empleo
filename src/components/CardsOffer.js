@@ -56,7 +56,7 @@ function CardsOffer() {
       <Container>
         {errorHandler ? <ErrorMessage><p>{errorMessage}</p></ErrorMessage> : 
           post.map((currElement) => (
-            <Link to={`/jobsview/${currElement.id}`}>
+            <Link to={`/oferta/${currElement.id}`}>
               <Wrapper key={currElement.createdTime}>
                 <CardContent>
                   {currElement.fields.logo ? <JobsImgContainer><Jobs src={currElement.fields.logo[0].url} /></JobsImgContainer>  : <JobsImgContainer><Jobs src="img/imac.svg"/></JobsImgContainer>}
@@ -77,7 +77,7 @@ function CardsOffer() {
                       ))}
                     </WrapperTags>
                     <ButtonCard>
-                      <Link to={`/jobsview/${currElement.id}`}>
+                      <Link to={`/oferta/${currElement.id}`}>
                         Más Información
                         <ArrowIcon />
                       </Link>
@@ -134,9 +134,9 @@ const TitleContent = styled.div`
 
 const PrincipalTitle = styled.div`
   h2 {
-    color: #2E2E2E;
+    color: #2e2e2e;
     font-family: "Poppins", sans-serif;
-    font-size: 26px;
+    font-size: 37px;
     font-weight: bolder;
     margin-bottom: 32px;
   }
@@ -147,12 +147,13 @@ const PrincipalTitle = styled.div`
 `;
 
 const Container = styled.div`
+  margin-bottom: 48px;
+
   @media (min-width: 1440px) {
     display: grid;
     flex-wrap: wrap;
     gap: 16px;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 0 auto;
     width: 1040px;
   }
 `;
@@ -175,13 +176,13 @@ const ErrorMessage = styled.div`
     width: 1040px;
   }
 
-  p{
+  p {
     font-family: "Poppins";
     font-size: 20px;
     font-weight: bold;
     width: 100%;
   }
-`
+`;
 
 const Wrapper = styled.div`
   border-radius: 5px;
@@ -240,7 +241,7 @@ const JobsImgContainer = styled.div`
     margin: 0;
     width: 225px;
   }
-`
+`;
 
 const Jobs = styled.img`
   border-radius: 5px;
@@ -273,7 +274,7 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
-  color: #898A89;
+  color: #898a89;
   display: flex;
   flex-wrap: wrap;
   font-family: "Open Sans", sans-serif;
@@ -334,11 +335,11 @@ const ButtonCard = styled.div`
   justify-content: flex-end;
   width: 100%;
 
-  a{
+  a {
     display: none;
     @media (min-width: 1440px) {
       align-items: center;
-      color: #CD552D;
+      color: #cd552d;
       display: flex;
       font-family: "Open Sans", sans-serif;
       font-size: 16px;
@@ -354,7 +355,7 @@ const ButtonCard = styled.div`
 `;
 
 const ArrowIcon = styled(ArrowForwardIosIcon)`
-  color: #CD552D;
+  color: #cd552d;
 `;
 
 export default CardsOffer;

@@ -1,22 +1,25 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Hero } from "../components/Hero";
-import Cards from "../components/CardsHome";
-import Suscriber from "../components/Suscriber";
+import CardsOffer from "../components/CardsOffer";
 import Footer from "../components/Footer";
+import MyProvider from "../aplication/provider";
+import Suscriber from "../components/Suscriber";
 import Banner from "../components/Banner";
+import { Hero } from "../components/Hero";
 
-function Home() {
+function Ofertas() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Cards/>
       <Suscriber />
+      <MyProvider value="Filtrar por tecnico">
+        <CardsOffer />
+      </MyProvider>
       <Banner />
       <Footer />
     </div>
   );
 }
 
-export default Home;
+export default Ofertas;

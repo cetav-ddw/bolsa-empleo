@@ -6,6 +6,8 @@ function Banner() {
   const info = {
     title: "Creando oportunidades",
     subtitle: "SOY CETAV | Bolsa de empleo",
+    newOffer: "Si tenés una oferta laboral, podés compartirla a este correo: ",
+    email: "lpacheco@parquelalibertad.org",
     banner: "img/banner.svg",
     logo: "img/logo.png",
   };
@@ -13,10 +15,14 @@ function Banner() {
     <Wrapper>
       <Background>
         <Flex>
-          <div>
+          <BannerInfo>
             <Title>{info.title}</Title>
             <Subtitle>{info.subtitle}</Subtitle>
-          </div>
+            <p>
+              {info.newOffer}
+              <strong>{info.email}</strong>
+            </p>
+          </BannerInfo>
           <Image src={info.banner} alt="Banner" />
         </Flex>
       </Background>
@@ -39,7 +45,7 @@ const Flex = styled.div`
 `;
 
 const Background = styled.div`
-  background: #2E2E2E;
+  background: #2e2e2e;
   border-radius: 5px;
   margin-bottom: 48px;
   width: 100%;
@@ -47,7 +53,7 @@ const Background = styled.div`
 const Title = styled.h2`
   color: #fff;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.525rem;
   font-weight: 700;
   padding-top: 52px;
   @media (min-width: 1440px) {
@@ -62,6 +68,30 @@ const Subtitle = styled.h3`
   padding-top: 24px;
   @media (min-width: 834px) {
     font-size: 1.125rem;
+  }
+`;
+const BannerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  p {
+    color: #ffff;
+    font-size: 16px;
+    margin-top: 40px;
+
+    @media (min-width: 834px) {
+      margin-top: 90px;
+    }
+    @media (min-width: 1440px) {
+      margin-top: 115px;
+    }
+  }
+  @media (min-width: 834px) {
+    width: 350px;
+  }
+  @media (min-width: 1440px) {
+    width: 440px;
   }
 `;
 const Image = styled.img`
