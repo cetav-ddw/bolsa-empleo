@@ -13,7 +13,7 @@ function Ofertas() {
       <Navbar />
       <Hero />
       <Suscriber />
-      <MyProvider value="Filtrar por tecnico">
+      <MyProvider value="Filtrar por técnico">
         <CardsOffer />
       </MyProvider>
       <Banner />
