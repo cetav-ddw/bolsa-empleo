@@ -7,7 +7,7 @@ import Banner from "../components/Banner";
 import { Hero } from "../components/Hero";
 import Footer from "../components/Footer";
 
-function Ofertas() {
+function Home() {
   return (
     <div>
       <Navbar />
@@ -22,4 +22,4 @@ function Ofertas() {
   );
 }
 
-export default Ofertas;
+export default Home;
