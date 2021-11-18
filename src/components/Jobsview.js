@@ -2,42 +2,54 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router";
 import { WrapperTags, TogleTags } from "./Tags";
-import Navbar from "./Navbar"
-import Footer from "./Footer";
+import Navbar from "./Navbar";
+import Footer from "../components/Footer";
+import Suscriber from "../components/Suscriber";
 
 function Jobsview() {
-  
-  let {id} = useParams();
+  let { id } = useParams();
   const [infoCards, setInfoCards] = useState({});
 
   useEffect(() => {
     const obtenerDatos = async () => {
-      const data = await fetch(`https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${id}`, {
-        headers: {
-          Authorization: "Bearer keyVGKRZEPpRENeUv",
-        },
-      })
-      const cardhome = await data.json()
+      const data = await fetch(
+        `https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${id}`,
+        {
+          headers: {
+            Authorization: "Bearer keyVGKRZEPpRENeUv",
+          },
+        }
+      );
+      const cardhome = await data.json();
       setInfoCards(cardhome);
-    }
-    obtenerDatos()
-  }, [id])
+    };
+    obtenerDatos();
+  }, [id]);
 
-  if(!infoCards.id){
-    return null
+  if (!infoCards.id) {
+    return null;
   }
   console.log(infoCards.fields.requeriments.split("-"));
-    
+
   return (
     <Container>
-      <Navbar/>
+      <Navbar />
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
-            {infoCards.fields.logo ? <ItemImg src={infoCards.fields.logo[0].url} alt="Logo de la empresa" /> : <ItemImg src="../img/imac.svg"/>}
+            {infoCards.fields.logo ? (
+              <ItemImg
+                src={infoCards.fields.logo[0].url}
+                alt="Logo de la empresa"
+              />
+            ) : (
+              <ItemImg src="../img/imac.svg" />
+            )}
             <Itemtext>
               <h6>{infoCards.fields.name_job}</h6>
-              {infoCards.fields.salary ? <p>Salario: ${infoCards.fields.salary}</p> : <p>Salario no disponible</p>}
+              {infoCards.fields.salary ? (
+                <p>Rango salarial: ${infoCards.fields.salary}</p>
+              ) : null}
               <p>{infoCards.fields.name_company}</p>
               <p>{infoCards.fields.career.join(", ")}</p>
             </Itemtext>
@@ -45,12 +57,24 @@ function Jobsview() {
         </JobHeader>
         <JobDetails>
           <JobBodyInfo>
-            {infoCards.fields.description ? <Description><h3>Descripción del Trabajo</h3><p>{infoCards.fields.description}</p></Description> : null }
-            
-            {infoCards.fields.requeriments ? <Requirements><h3>Requisitos</h3>{infoCards.fields.requeriments.split("\n").map((currentRequeriments) => (
-              <ActualRequirement>{currentRequeriments}</ActualRequirement>
-            ))}</Requirements> : null }
-            
+            {infoCards.fields.description ? (
+              <Description>
+                <h3>Descripción del Trabajo</h3>
+                <p>{infoCards.fields.description}</p>
+              </Description>
+            ) : null}
+
+            {infoCards.fields.requeriments ? (
+              <Requirements>
+                <h3>Requisitos</h3>
+                {infoCards.fields.requeriments
+                  .split("\n")
+                  .map((currentRequeriments) => (
+                    <ActualRequirement>{currentRequeriments}</ActualRequirement>
+                  ))}
+              </Requirements>
+            ) : null}
+
             <Level>
               <h3>Nivel de Conocimientos</h3>
               <WrapperTags>
@@ -73,19 +97,27 @@ function Jobsview() {
               <h3>Contáctenos</h3>
               <p>{infoCards.fields.email}</p>
             </Contact>
-
           </JobBodyInfo>
-          {infoCards.fields.image_job ? <JobImgInfo><img src={infoCards.fields.image_job[0].url} alt="Imagen del trabajo"></img><p>La oferta laboral estará disponible 30 días.</p></JobImgInfo> : <p>La oferta laboral estará disponible 30 días.</p>}
+          {infoCards.fields.image_job ? (
+            <JobImgInfo>
+              <img
+                src={infoCards.fields.image_job[0].url}
+                alt="Imagen del trabajo"
+              ></img>
+              <p>La oferta laboral estará disponible 30 días.</p>
+            </JobImgInfo>
+          ) : (
+            <p>La oferta laboral estará disponible 30 días.</p>
+          )}
         </JobDetails>
       </Wrap>
-      <Footer/>
+      <Suscriber />
+      <Footer />
     </Container>
   );
 }
 
 export default Jobsview;
-
-
 
 const Container = styled.div`
   height: 100%;
@@ -165,7 +197,7 @@ const Itemtext = styled.div`
     font-weight: bolder;
   }
   p:nth-child(4) {
-    color: #898A89;
+    color: #898a89;
     font-family: "Poppins";
     font-size: 12px;
     font-weight: bold;
@@ -180,7 +212,7 @@ const Itemtext = styled.div`
   }
   @media (min-width: 1440px) {
     margin-left: 56px;
-    width: 360px;
+    width: 450px;
   }
 `;
 
@@ -245,16 +277,13 @@ const Requirements = styled.div`
     font-size: 18px;
     width: 100%;
   }
-`
+`;
 const ActualRequirement = styled.p`
   padding-bottom: 16px;
-`
-const Level = styled.div`
-`
-const Modality = styled.div`
-`
-const Contact = styled.div`
-`
+`;
+const Level = styled.div``;
+const Modality = styled.div``;
+const Contact = styled.div``;
 
 const JobImgInfo = styled.div`
   border-radius: 5px;
@@ -265,7 +294,7 @@ const JobImgInfo = styled.div`
   }
   p {
     color: #5e5e5e;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bolder;
   }
   @media (min-width: 834px) {

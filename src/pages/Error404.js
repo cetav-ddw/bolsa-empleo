@@ -32,10 +32,9 @@ const Container = styled.div`
   p {
     font-family: "Open Sans";
     font-size: 26px;
-    
   }
   a {
-    background-color: #CD552D;
+    background-color: #cd552d;
     border-radius: 5px;
     color: white;
     font-size: 20px;

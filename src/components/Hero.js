@@ -18,7 +18,7 @@ function Hero() {
 }
 
 const Background = styled.div`
-  background-color: #ECECEC;
+  margin-top: 40px;
   width: 100%;
 `;
 
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 `;
 
 const Welcome = styled.p`
-  color: #CD552D;
+  color: #cd552d;
   display: inline-block;
   font-family: "Poppins", sans-serif;
   font-size: 1.375rem;

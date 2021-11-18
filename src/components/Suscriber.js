@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-
 function Suscriber() {
   const info = {
     name: "Suscríbete a nuestro newsletter",
     label: "Ingrese su Email:",
-    image: "img/email.svg",
+    image: "../img/email.svg",
     url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
     paragraph:
-      "Suscríbete a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
+      "Suscribete a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
   };
 
   return (
@@ -28,7 +27,7 @@ function Suscriber() {
           noValidate
         >
           <div id="mc_embed_signup_scroll">
-            <Title>{info.name}</Title>
+            {/* <Title>{info.name}</Title> */}
             <Paragraph>{info.paragraph}</Paragraph>
             <div className="mc-field-group">
               <Label htmlFor="mce-EMAIL">{info.label}</Label>
@@ -75,21 +74,13 @@ function Suscriber() {
 const Wrapper = styled.div`
   margin: 48px auto;
   width: 343px;
+  background-color: #ececec;
+  border-radius: 5px;
   @media (min-width: 834px) {
     width: 770px;
   }
   @media (min-width: 1440px) {
     width: 1040px;
-  }
-`
-
-const Title = styled.h2`
-  color: #292929;
-  font-family: "Poppins", sans-serif;
-  font-size: 1.625rem;
-  font-weight: 700;
-  @media (min-width: 834px) {
-    font-size: 2.313rem;
   }
 `;
 const Label = styled.label`
@@ -110,7 +101,7 @@ const Email = styled.input`
   margin-top: 10px;
   padding-left: 5px;
   width: 100%;
-  
+
   @media (min-width: 834px) {
     margin-top: 0;
     width: 64%;
@@ -126,11 +117,18 @@ const Paragraph = styled.p`
   font-size: 1.3rem;
   font-weight: bold;
   margin-top: 14px;
+
+  @media (min-width: 834px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1440px) {
+    font-size: 1.9rem;
+  }
 `;
 
 const Button = styled.input`
   -webkit-appearance: button;
-  background: #CD552D;
+  background: #cd552d;
   border-radius: 5px;
   border: none;
   color: #fff;
@@ -148,8 +146,8 @@ const Button = styled.input`
   }
 
   @media (min-width: 1440px) {
-    &:hover{
-      background-color: #712E17;
+    &:hover {
+      background-color: #712e17;
     }
   }
 `;
@@ -169,7 +167,7 @@ const Container = styled.div`
 `;
 const Form = styled.form`
   @media (min-width: 834px) {
-    width: 60%;
+    width: 65%;
   }
 `;
 const Image = styled.img`
@@ -177,12 +175,13 @@ const Image = styled.img`
   @media (min-width: 834px) {
     display: block;
     height: 300px;
-    padding-top: 38px;
+    padding-top: 30px;
     width: 100%;
   }
 `;
 const Mailchimp = styled.div`
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+  padding: 25px 35px;
   @media (min-width: 834px) {
     align-items: center;
     display: flex;

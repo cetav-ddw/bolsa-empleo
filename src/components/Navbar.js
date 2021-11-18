@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import WorkIcon from "@mui/icons-material/Work";
 
 function Navbar() {
@@ -24,8 +23,7 @@ function Navbar() {
           </a>
         </WrapperLogo>
         <HeaderNav>
-          <Link to="/">Inicio</Link>
-          <Link to="/ofertas">Ofertas Laborales</Link>
+          <Link to="/">Ofertas Laborales</Link>
         </HeaderNav>
         <MenuIcon onClick={() => setMenuStatus(true)} />
       </WrapperHeader>
@@ -36,10 +34,6 @@ function Navbar() {
           </CloseWrapper>
           <AnchorsWrapper>
             <Link to="/">
-              <HomeRoundedIcon />
-              {info.home}
-            </Link>
-            <Link to="/ofertas">
               <WorkIcon />
               {info.offers}
             </Link>
