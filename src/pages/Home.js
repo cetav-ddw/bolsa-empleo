@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import CardsOffer from "../components/CardsOffer";
-import Footer from "../components/Footer";
 import MyProvider from "../aplication/provider";
 import Suscriber from "../components/Suscriber";
 import Banner from "../components/Banner";
 import { Hero } from "../components/Hero";
+import Footer from "../components/Footer";
 
 function Ofertas() {
   return (
