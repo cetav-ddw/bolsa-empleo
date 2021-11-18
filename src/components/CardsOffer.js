@@ -5,7 +5,7 @@ import { WrapperTags, TogleTags } from "./Tags";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
-
+// codigo
 function CardsOffer() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
