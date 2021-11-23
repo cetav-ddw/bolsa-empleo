@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { WrapperTags, TogleTags } from "./Tags";
 import Navbar from "./Navbar";
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import Suscriber from "../components/Suscriber";
 
 function Jobsview() {
@@ -125,7 +125,6 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   color: black;
-
   @media (min-width: 834px) {
     width: 100%;
     margin: 0 auto;
@@ -159,6 +158,7 @@ const JobHeaderInfo = styled.div`
 `;
 const ItemImg = styled.img`
   width: 100px;
+  border-radius: 10px;
   @media (min-width: 834px) {
     width: 150px;
   }
@@ -174,13 +174,11 @@ const Itemtext = styled.div`
   margin-left: 32px;
   text-align: left;
   width: 211px;
-
   h6 {
     font-family: "Poppins";
     font-size: 20px;
     margin-bottom: 16px;
     margin-top: 0;
-
     @media (min-width: 1440px) {
       font-size: 26px;
     }
@@ -205,7 +203,6 @@ const Itemtext = styled.div`
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-
     @media (min-width: 1440px) {
       font-size: 16px;
     }
@@ -223,14 +220,12 @@ const Itemtext = styled.div`
 const JobDetails = styled.div`
   margin: 32px auto;
   width: 343px;
-
   @media (min-width: 834px) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 770px;
   }
-
   @media (min-width: 1440px) {
     width: 1040px;
   }
@@ -239,7 +234,6 @@ const JobDetails = styled.div`
 const JobBodyInfo = styled.div`
   width: 100%;
   text-align: left;
-
   h3 {
     color: black;
     font-family: "Poppins";
@@ -296,7 +290,6 @@ const JobImgInfo = styled.div`
   border-radius: 5px;
   margin-top: 48px;
   width: 100%;
-
   img {
     width: 100%;
   }
@@ -305,12 +298,10 @@ const JobImgInfo = styled.div`
     font-size: 16px;
     font-weight: bolder;
   }
-
   @media (min-width: 834px) {
     margin-top: 0;
     width: 60%;
   }
-
   @media (min-width: 1440px) {
     width: 50%;
   }

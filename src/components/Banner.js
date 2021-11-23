@@ -46,7 +46,7 @@ const Flex = styled.div`
 
 const Background = styled.div`
   background: #2e2e2e;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 48px;
   width: 100%;
 `;

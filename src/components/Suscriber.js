@@ -5,10 +5,10 @@ function Suscriber() {
   const info = {
     name: "Suscríbete a nuestro newsletter",
     label: "Ingrese su Email:",
-    image: "../img/email.svg",
+    image: "../img/suscribe.svg",
     url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
     paragraph:
-      "Suscribete a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
+      "Suscribite a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
   };
 
   return (
@@ -72,10 +72,11 @@ function Suscriber() {
 }
 
 const Wrapper = styled.div`
-  margin: 48px auto;
+  margin: 40px auto;
   width: 343px;
-  background-color: #ececec;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 2px solid #5e5e5e;
+  
   @media (min-width: 834px) {
     width: 770px;
   }
@@ -89,25 +90,38 @@ const Label = styled.label`
   font-size: 1.125rem;
   font-weight: 500;
   margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const Email = styled.input`
+  -webkit-appearance: input;
   border-radius: 8px;
-  border: 2px solid #7c7c7c;
-  color: #292929;
+  color: #5e5e5e;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
+  background-color: #ECECEC;
   height: 54px;
   margin-top: 10px;
   padding-left: 5px;
   width: 100%;
 
   @media (min-width: 834px) {
-    margin-top: 0;
-    width: 64%;
+    width: 100%;
+    border-radius: 8px 0 0 8px;
+    background-color: #ECECEC;
+    border: none;
+    color: #5e5e5e;
+    margin-top: 0px;
   }
   @media (min-width: 1440px) {
-    width: 73%;
+    width: 100%;
+    border-radius: 8px 0 0 8px;
+    background-color: #ECECEC;
+    border: none;
+    color: #5e5e5e;
+  }
+  ::placeholder{
+    color: #5e5e5e;
   }
 `;
 
@@ -129,23 +143,41 @@ const Paragraph = styled.p`
 const Button = styled.input`
   -webkit-appearance: button;
   background: #cd552d;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: bold;
-  margin-left: 188px;
   margin-top: 20px;
-  padding: 12px 16px;
+  padding: 10px 16px;
+  width: 100%;
 
   @media (min-width: 834px) {
     margin-left: 0;
     margin-top: 0;
-    padding: 12px 16px;
+
+    -webkit-appearance: button;
+    background: #cd552d;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    color: #ffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 16px;
   }
 
   @media (min-width: 1440px) {
+    -webkit-appearance: button;
+    background: #cd552d;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    color: #ffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 16px;
     &:hover {
       background-color: #712e17;
     }
@@ -180,13 +212,11 @@ const Image = styled.img`
   }
 `;
 const Mailchimp = styled.div`
-  margin-bottom: 40px;
   padding: 25px 35px;
   @media (min-width: 834px) {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-top: 48px;
   }
 `;
 const SuscribeButton = styled.div`
@@ -197,8 +227,6 @@ const Flex = styled.div`
   @media (min-width: 834px) {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
   }
 `;
 export default Suscriber;
