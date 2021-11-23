@@ -23,7 +23,7 @@ function Navbar() {
           </a>
         </WrapperLogo>
         <HeaderNav>
-          <Link to="/">Ofertas Laborales</Link>
+          <Link to="/">Ver ofertas</Link>
         </HeaderNav>
         <MenuIcon onClick={() => setMenuStatus(true)} />
       </WrapperHeader>
@@ -60,6 +60,9 @@ const WrapperHeader = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   width: 343px;
+  svg {
+    display: none;
+  }
   @media (min-width: 834px) {
     width: 770px;
   }
@@ -82,7 +85,7 @@ const HeaderNav = styled.div`
   display: flex;
   a {
     color: white;
-    display: none;
+    //display: none;
     font-family: "Poppins";
     font-size: 18px;
     font-weight: bolder;
@@ -108,6 +111,7 @@ const HeaderNav = styled.div`
 `;
 
 const MenuIcon = styled(MenuRoundedIcon)`
+  display: none;
   color: white;
   font-size: medium;
   width: 50px;
@@ -121,6 +125,7 @@ const Menuwrapper = styled.div`
 `;
 
 const MenuNav = styled.div`
+  display: none;
   background: #292929;
   bottom: 0;
   display: flex;
@@ -139,7 +144,7 @@ const MenuNav = styled.div`
     width: 375px;
   }
   @media (min-width: 1440px) {
-    display: none;
+    
   }
 `;
 

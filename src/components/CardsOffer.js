@@ -118,7 +118,7 @@ const TitleContent = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-top: 32px;
+  padding-top: 24px;
   width: 343px;
   @media (min-width: 834px) {
     align-items: baseline;
@@ -138,7 +138,7 @@ const PrincipalTitle = styled.div`
     font-family: "Poppins", sans-serif;
     font-size: 37px;
     font-weight: bolder;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   @media (min-width: 834px) {
     font-size: 37px;
@@ -161,7 +161,7 @@ const Container = styled.div`
 const ErrorMessage = styled.div`
   align-items: center;
   border-radius: 5px;
-  border: 2px solid #5755cc;
+  border: 2px solid #2E2E2E;
   display: flex;
   justify-content: center;
   margin: 16px auto;
@@ -185,7 +185,7 @@ const ErrorMessage = styled.div`
 `;
 
 const Wrapper = styled.div`
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid #5e5e5e;
   display: flex;
   justify-content: space-between;
@@ -198,7 +198,7 @@ const Wrapper = styled.div`
   }
   @media (min-width: 1440px) {
     align-items: center;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid #5e5e5e;
     display: flex;
     flex-direction: column;
@@ -244,15 +244,13 @@ const JobsImgContainer = styled.div`
 `;
 
 const Jobs = styled.img`
-  border-radius: 5px;
+  border-radius: 10px;
   width: 100px;
 
   @media (min-width: 834px) {
-    border-radius: 5px;
     width: 100%;
   }
   @media (min-width: 1440px) {
-    border-radius: 5px;
     width: 100%;
   }
 `;
