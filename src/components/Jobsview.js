@@ -159,6 +159,7 @@ const JobHeaderInfo = styled.div`
 `;
 const ItemImg = styled.img`
   width: 100px;
+  border-radius: 10px;
   @media (min-width: 834px) {
     width: 150px;
   }
