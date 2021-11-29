@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 function Suscriber() {
+  const user = process.env.REACT_APP_API_USER;
+  const id = process.env.REACT_APP_API_ID;
   const info = {
     name: "Suscríbete a nuestro newsletter",
     label: "Ingrese su Email:",
     image: "../img/suscribe.svg",
-    url: `https://gmail.us5.list-manage.com/subscribe/post?u=89a21ad8fc7a9ac4952f237b8&id=3db6decf58`,
+    url: `https://parquelalibertad.us10.list-manage.com/subscribe/post?u=${user};id=${id}`,
     paragraph:
       "Suscribite a nuestro newsletter para recibir nuevas ofertas laborales en tu correo.",
   };

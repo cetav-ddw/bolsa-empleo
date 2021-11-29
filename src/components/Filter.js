@@ -7,7 +7,7 @@ export default function Filter() {
   return (
     <Container>
       <select value={context} onChange={(e) => setContext(e.target.value)}>
-        <option value="Filtrar por técnico">Todos los técnicos</option>
+        <option value="Filtrar por tecnico">Todos los técnicos</option>
         <option value="Diseño y desarrollo web">Diseño Web</option>
         <option value="Animación 3D">Animación 3D</option>
         <option value="PostProducción">Postproducción</option>
@@ -35,7 +35,6 @@ const Container = styled.div`
       color: #7c7c7c;
       font-family: "Poppins", sans-serif;
     }
-
     @media (min-width: 834px) {
       width: 24%;
     }
