@@ -10,7 +10,9 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <Navbar 
+        page = ""
+      />
       <Hero />
       <Suscriber />
       <MyProvider value="Filtrar por técnico">

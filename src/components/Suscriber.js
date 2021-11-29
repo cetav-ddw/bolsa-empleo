@@ -29,7 +29,6 @@ function Suscriber() {
           noValidate
         >
           <div id="mc_embed_signup_scroll">
-            {/* <Title>{info.name}</Title> */}
             <Paragraph>{info.paragraph}</Paragraph>
             <div className="mc-field-group">
               <Label htmlFor="mce-EMAIL">{info.label}</Label>
@@ -57,7 +56,6 @@ function Suscriber() {
               <Error className="response" id="mce-error-response"></Error>
               <Success className="response" id="mce-success-response"></Success>
             </div>
-            {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
             <Aria aria-hidden="true">
               <input
                 type="text"

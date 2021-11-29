@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
-import WorkIcon from "@mui/icons-material/Work";
 
-function Navbar() {
+function Navbar({page}) {
   const info = {
     cetav_link: "https://www.parquelalibertad.org/cetav/home",
-    logo: "../img/principal-logo.png",
-    home: "Inicio",
-    offers: "Ofertas de Empleo",
+    logo: "../img/principal-logo.png",  
   };
-  const [menuStatus, setMenuStatus] = useState(false);
 
   return (
     <Container>
@@ -23,23 +17,9 @@ function Navbar() {
           </a>
         </WrapperLogo>
         <HeaderNav>
-          <Link to="/">Ver ofertas</Link>
+          <Link to="/">{page}</Link>
         </HeaderNav>
-        <MenuIcon onClick={() => setMenuStatus(true)} />
       </WrapperHeader>
-      <MenuNav show={menuStatus}>
-        <Menuwrapper>
-          <CloseWrapper>
-            <CustomClose onClick={() => setMenuStatus(false)} />
-          </CloseWrapper>
-          <AnchorsWrapper>
-            <Link to="/">
-              <WorkIcon />
-              {info.offers}
-            </Link>
-          </AnchorsWrapper>
-        </Menuwrapper>
-      </MenuNav>
     </Container>
   );
 }
@@ -110,68 +90,5 @@ const HeaderNav = styled.div`
   }
 `;
 
-const MenuIcon = styled(MenuRoundedIcon)`
-  display: none;
-  color: white;
-  font-size: medium;
-  width: 50px;
-  @media (min-width: 1440px) {
-    display: none;
-  }
-`;
-const Menuwrapper = styled.div`
-  margin: 18px auto;
-  width: 315px;
-`;
 
-const MenuNav = styled.div`
-  display: none;
-  background: #292929;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 20px;
-  position: fixed;
-  right: 0;
-  text-align: start;
-  top: 0;
-  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.2s;
-  width: 100%;
-  z-index: 16;
-  @media (min-width: 834px) {
-    width: 375px;
-  }
-  @media (min-width: 1440px) {
-    
-  }
-`;
-
-const AnchorsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 57px;
-  a {
-    align-items: center;
-    color: white;
-    display: flex;
-    font-family: "Poppins";
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-  svg {
-    margin-right: 16px;
-  }
-`;
-
-const CloseWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const CustomClose = styled(ClearRoundedIcon)`
-  color: white;
-  font-size: large;
-`;
 export default Navbar;

@@ -33,7 +33,7 @@ function Jobsview() {
 
   return (
     <Container>
-      <Navbar />
+      <Navbar page = "Ver ofertas" />
       <Wrap>
         <JobHeader>
           <JobHeaderInfo>
