@@ -13,10 +13,10 @@ function Jobsview() {
   useEffect(() => {
     const obtenerDatos = async () => {
       const data = await fetch(
-        `https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs/${id}`,
+        `https://api.airtable.com/v0/appWTWqC62qUVcz9w/Jobs/${id}`,
         {
           headers: {
-            Authorization: "Bearer keyVGKRZEPpRENeUv",
+            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
           },
         }
       );
@@ -104,10 +104,10 @@ function Jobsview() {
                 src={infoCards.fields.image_job[0].url}
                 alt="Imagen del trabajo"
               ></img>
-              <p>La oferta laboral estará disponible 30 días.</p>
+              <p>La oferta laboral estará disponible 7 días.</p>
             </JobImgInfo>
           ) : (
-            <p>La oferta laboral estará disponible 30 días.</p>
+            <p>La oferta laboral estará disponible 7 días.</p>
           )}
         </JobDetails>
       </Wrap>

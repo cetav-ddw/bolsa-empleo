@@ -6,14 +6,14 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Filter from "./Filter";
 import { Link } from "react-router-dom";
 // codigo
-function CardsOffer() {
+function Cards() {
   const [post, setPost] = useState([]);
   const [context] = useContext(FilterContext);
   const [errorHandler, setErrorHandler] = useState(false);
   const [errorMessage, setErrorMessage] = useState(" ");
   useEffect(() => {
     fetch(
-      "https://api.airtable.com/v0/appDz13O7ugHyw4mH/jobs?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
+      "https://api.airtable.com/v0/appWTWqC62qUVcz9w/Jobs?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=desc",{
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
         },
@@ -356,4 +356,4 @@ const ArrowIcon = styled(ArrowForwardIosIcon)`
   color: #cd552d;
 `;
 
-export default CardsOffer;
+export default Cards;

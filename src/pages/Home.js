@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import CardsOffer from "../components/CardsOffer";
+import Cards from "../components/Cards";
 import MyProvider from "../aplication/provider";
 import Suscriber from "../components/Suscriber";
 import Banner from "../components/Banner";
@@ -16,7 +16,7 @@ function Home() {
       <Hero />
       <Suscriber />
       <MyProvider value="Filtrar por técnico">
-        <CardsOffer />
+        <Cards />
       </MyProvider>
       <Banner />
       <Footer />
