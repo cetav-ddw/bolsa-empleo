@@ -7,7 +7,7 @@ function Banner() {
     title: "Creando oportunidades",
     subtitle: "SOY CETAV | Bolsa de empleo",
     newOffer: "Si tenés una oferta laboral, podés compartirla a este correo: ",
-    email: "lpacheco@parquelalibertad.org",
+    email: "cetav@parquelalibertad.org",
     banner: "img/banner.svg",
     logo: "img/logo.png",
   };
